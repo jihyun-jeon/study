@@ -8,5 +8,8 @@ module.exports = {
     ecmaVersion: 13,
     sourceType: 'module',
   },
-  rules: {},
+  rules: {
+    'no-restricted-syntax': 0,
+    'operator-linebreak': [2, 'after'],
+  },
 };
