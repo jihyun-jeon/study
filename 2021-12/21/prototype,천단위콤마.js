@@ -44,64 +44,55 @@ function Counter2(cnt) {
 Counter2.prototype.print = function () {
   // 방법1.
   // const parts = String(this.count).split(''); // ["3","1","2","0","0"]
+  // ***** split(""):공백으로 나누면 각 문자 하나하나로 나누게됨. *****
   // const arr = []; // [[3,1],[2,0,0]]
   // while (parts.length) {
   //   arr.unshift(parts.splice(-3, 3));
   // }
   // return arr.map((el) => el.join('')).join(','); // ["31","200"];
   //
-  // 방법2
-  const parts2 = String(this.count).split(''); // ["3","1","2","0","0"]
-  let _p = [];
-  const result = [];
-
-  for (let i = parts2.length - 1; i >= 0; i -= 1) {
-    const item = parts2[i];
-    _p.unshift(item);
-    if ((i + 1) % 3 === 0) {
-      result.unshift(_p);
-      _p = [];
-    }
-  }
-
-  if (_p.length) {
-    result.unshift(_p);
-  }
-  console.log(result); // [[3, 1], [2, 0, 0]];
-
-  //   let str = '';
-  //   let arr = [];
-
-  //   for (let i = 0; i < result.length; i += 1) {
-  //     const idx = []; // [[3,1],[2,0,0]]
-  //     for (let j = 0; j < result[i].length; j += 1) {
-  //       idx.push(result[i][j]);
-  //     }
-  //     arr.push(idx);
+  // 방법 2-1
+  // const parts2 = String(this.count).split(''); // ["3","1","2","0","0"]
+  // let _p = [];
+  // const result = [];
+  // for (let i = parts2.length - 1; i >= 0; i -= 1) {
+  //   const item = parts2[i];
+  //   _p.unshift(item);
+  //   if ((i + 1) % 3 === 0) {
+  //     result.unshift(_p);
+  //     _p = [];
   //   }
-
-  // [[3, 1], [2, 0, 0]]
-
-  let str = '';
-
-  for (let i = 0; i < result.length; i += 1) {
-    let idx = '';
-
-    for (let j = 0; j < result[i].length; j += 1) {
-      idx += result[i][j];
-    }
-    // (방법1)
-    str += `${idx}${i === result.length - 1 ? '' : ','}`;
-  }
-  // (방법2)
-  // str = arr.map((el) => el.join('')).join(',');
+  // }
+  // if (_p.length) {
+  //   result.unshift(_p);
+  // }
+  // console.log(result); // [[3, 1], [2, 0, 0]];
+  // let str = '';
+  // for (let i = 0; i < result.length; i += 1) {
+  //   let idx = '';
+  //   for (let j = 0; j < result[i].length; j += 1) {
+  //     idx += result[i][j];
+  //   }
+  //   str += `${idx}${i === result.length - 1 ? '' : ','}`;
+  // }
+  // return str;
+  // 방법 2-2
+  // const parts3 = this.count.toString().split(''); // ["3","1","2","0","0"]
+  // let _p = []; // [[3,1],[2,0,0]]
+  // while (parts3.length) {
+  //   _p.unshift(parts3.splice(-3, 3));
+  // }
+  // let str = '';
+  // for (let i = 0; i < _p.length; i += 1) {
+  //   let idx = '';
+  //   for (let j = 0; j < _p[i].length; j += 1) {
+  //     idx += _p[i][j];
+  //   }
+  //   str += `${idx},`;
+  // }
   // return str.slice(0, str.length - 1);
-  return str;
-  // (방법3)
-  // return result.map((el) => el.join('')).join(',');
-
   // 방법3
-  // return this.count.toLocaleString(); // number의 메소드임.
+  // return this.count.toLocaleString(); // ***** Number의 메소드임. string으로 반환 *****
 };
 
 // 실행코드
