@@ -93,7 +93,7 @@ myFunction4([1, 2, '2', 1], 1); // [2, '2']
 
 /*
 // 문제 5. 배열 두개를 받아서 중복을 제거하고 병합하는 myFunction함수를 개발하시오
-// 방법 1,2
+// 방법 1,2 - for문을 도는 방법
 // function myFunction5(a, b) {
 //   const result = [];
 //   const arrs = [a, b];
