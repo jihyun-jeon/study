@@ -4,8 +4,9 @@ function myFunction2(a, b) {
   console.log(a - b !== 0);
   // a-b : 이 되는 이유
   // valueOf(): 객체를 연산자랑 활용해서 쓰면, valueOf메서드가 있는 것이라면 이 메소드가 자동으로 실행됨
-  // Date 프로토타입 객체에 valueOf 메서드가 이미 구현되있음.
+  // (Date 프로토타입 객체에 valueOf 메서드가 이미 구현되있음.)
   // a.valueOf() - b.valueOf() 가 자동으로 호출되는 것임
+  //
   // getTime(): 이 메서드를 사용하여 숫자로 반환해도 됨.
   // return a.getTime() - b.getTime() === 0;
 }
@@ -14,10 +15,10 @@ myFunction2(new Date('2000/01/01 08:00:00'), new Date('2000/01/01 08:45:00')); /
 myFunction2(new Date('2000/01/01 08:00:00'), new Date('2000/01/01 08:00:00')); // true
 myFunction2(new Date('2010/01/01 08:00:00'), new Date('2000/01/01 08:00:00')); // false
 
-// *** 객체를 문자열과 연산할때 또는 문자열로 변환할땐 toString()이 호출됨
+// *** 객체를 문자열과 연산할때 또는 객체를 문자열로 변환할땐 toString()이 호출됨
 const a = {} + ''; // toSting()
 const a = String({}); // toSting()
-// *** 객체를 그 외에 원시값과 연산하거나 또는 원시값으로 변환할땐, valueOf()가 호출됨
+// *** 객체를 원시값과 연산하거나 또는 원시값으로 변환할땐, valueOf()가 호출됨
 const a = {} + 3; // valueOf()
 const a = {}+3; {}-3; {}*3; {}/3; {}>3; {} <3; 등.. 연산자
 const a = {} + {}; // valueOf()
@@ -35,7 +36,6 @@ TodoItem.prototype.toString = function () {
 };
 
 TodoItem.prototype.valueOf = function () {
-  // console.log(this.hourObj); // {hours: 2}
   return this.hourObj.hours;
 };
 
