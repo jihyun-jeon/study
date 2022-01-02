@@ -9,6 +9,12 @@ function strToDate(str) {
 function Duration(date1, date2) {
   this.date1 = strToDate(date1);
   this.date2 = strToDate(date2);
+  this.date2.setHours(
+    23,
+    59,
+    59,
+    999,
+  ); /* new Date하면 0시0분으로 되서 59분으로..으로 말일로 맞춰줌 */
 }
 
 Duration.prototype.render = function (el) {
@@ -77,15 +83,12 @@ DurationList.prototype.render = function (el) {
   console.log(this.list); // [{date1:2021,02,03, date2: 2021,03,04},{},{}]
   let result = '';
   let top = 0;
+  const removeD = new Date(2021, 11, 31, 23, 59, 59, 999);
   for (const dur of this.list) {
-    const fullYear =
-      new Date(2021, 11, 31, 23, 59, 59, 999) -
-      new Date(2020, 11, 31, 23, 59, 59, 999);
+    const fullYear = new Date(2022, 11, 31, 23, 59, 59, 999) - removeD;
 
-    const startD = dur.date1 - new Date(2020, 11, 31, 23, 59, 59, 999);
-    const lastD =
-      new Date(dur.date2.getTime()).setHours(23, 59, 59, 99) -
-      new Date(2020, 11, 31, 23, 59, 59, 999);
+    const startD = dur.date1 - removeD;
+    const lastD = dur.date2.getTime() - removeD;
 
     const startPx = (1000 * startD) / fullYear;
     const lastPx = (1000 * lastD) / fullYear;
