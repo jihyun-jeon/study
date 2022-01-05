@@ -1,3 +1,36 @@
 .invalid {
   border: 1px solid red;
 }
+
+.err-massege {
+  color: rgba(206, 18, 18, 0.89);
+}
+.err-massege:not(.phoneNum-error) {
+  margin-left: 85px;
+}
+
+form {
+  width: 400px;
+  height: 500px;
+  border: 1px solid black;
+  padding: 15px;
+  position: relative;
+}
+form > div {
+  padding-bottom: 10px;
+}
+
+label {
+  display: inline-block;
+  width: 80px;
+}
+
+.btn-add {
+  margin-left: 110px;
+  background-color: rgb(34, 150, 111);
+}
+
+.submit {
+  position: absolute;
+  right: 100px;
+}
