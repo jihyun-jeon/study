@@ -22,7 +22,7 @@
 }
 
 .accordion-body {
-  overflow: hidden; /* 높이가 0이되면 높이 영역 밖의 것들은 사라지게 됨*/
+  overflow: hidden; /* 요소의 블록 서식 보다 요소의 콘텐츠가 더 커서  맞출 수 없을 때 콘텐츠를 숨기게 됨*/
   transition: height 0.3s; /*height속성이 바뀔때 transition이 일어남*/
 }
 
@@ -31,7 +31,7 @@
 }
 
 .accordion-body.hide {
-  /* accordion-body이라는 클래스와 hide 클래스를 동시에 갖고있는 것을 선택시 */
+  /* accordion-body이라는 클래스와 hide 클래스를 동시에 갖고있는 것을 선택지 */
   height: 0px;
 }
 
