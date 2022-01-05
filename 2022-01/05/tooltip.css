@@ -1,0 +1,14 @@
+.tooltip {
+  inset: 0px auto auto 0px; /* 한번에 top r b l 주는 법 (top,r,b,l 는 바디기준임) */
+  position: absolute; /* relative 없으면 body가 기준이 됨*/
+  padding: 2px 3px;
+  font-size: 0.8rem;
+  background-color: #000;
+  color: #fff;
+  opacity: 0; /* 완전투명함*/
+  transition: opacity 0.3s; /* 바뀌는 속성을 써줘야 함 */
+}
+
+.tooltip.show {
+  opacity: 1; /* 완전보임*/
+}
