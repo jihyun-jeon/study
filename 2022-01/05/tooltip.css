@@ -1,6 +1,7 @@
 .tooltip {
-  inset: 0px auto auto 0px; /* 한번에 top r b l 주는 법 (top,r,b,l 는 바디기준임) */
   position: absolute; /* relative 없으면 body가 기준이 됨*/
+  inset: 0px auto auto 0px; /* 한번에 top r b l 주는 법 (top,r,b,l 는 바디기준임) */
+  /* 처음엔 body 기준으로 젤 왼쪽 위로 놈. 이후 offsetXY로 좌표 구해서 translate로 위치 조절해줌 */
   padding: 2px 3px;
   font-size: 0.8rem;
   background-color: #000;

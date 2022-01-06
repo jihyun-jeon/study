@@ -35,5 +35,8 @@
   height: 0px;
 }
 
-/* transform: 요소의 형태를 바꿈 (ex: translate:x,y좌표로 움직이는 것 ,skew 등) */
-/* transition: 요소의 속성이 바뀜 (ex: width의 길이가 바뀜) */
+/* transform, transition, animation의 차이
+transform: 요소의 "형태"를 바꿈 (ex: translate:x,y좌표로 움직이는 것 ,skew 등)
+transition: "시간차를 두고", 요소의 "속성"이 바뀜 (ex: width의 길이가 바뀜)
+animation: 원하는 지점에서 스타일을 바꿀 수 있음, @keyframes 사용
+*/
