@@ -1,0 +1,21 @@
+.container {
+  width: 500px;
+  height: 100px;
+  border: 1px solid black;
+  margin-bottom: 40px;
+  background-color: rgb(223, 217, 217);
+}
+
+.progress-bar {
+  color: white;
+  background-color: rgb(43, 89, 173);
+  height: 100px;
+  width: 0px;
+  transition: width 1s; /* 스타일이 바뀌는 요소에 트랜지션 넣음 */
+  /* 0% 가운데를 바의 배치 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /*블럭 밖으로 삐져나온 요소를 감춤*/
+  overflow: hidden;
+}
