@@ -1,0 +1,170 @@
+@import '../reset.css';
+.hidden {
+  visibility: hidden;
+}
+
+body {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+/*시계*/
+#clockContainer {
+  width: 130px;
+  height: 80px;
+  padding: 0px 10px;
+  position: absolute;
+  inset: 20px auto auto 20px; /* 한번에 top r b l 주는 법 (top,r,b,l 는 바디기준임) */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  border-radius: 500px;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+.clock {
+  z-index: 2;
+  color: white;
+  font-size: 30px;
+}
+/*날씨*/
+#weather {
+  position: absolute;
+  inset: 20px 20px auto auto;
+  background-color: rgba(0, 0, 0, 0.3);
+  border: none;
+  border-radius: 500px;
+  padding: 5px 20px;
+}
+#weather div {
+  color: white;
+  font-size: 25px;
+  text-align: center;
+  font-weight: 600;
+}
+
+/* login form */
+#login-form {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#login-form :first-child {
+  margin-right: 20px;
+  width: 500px;
+  border: none;
+  background-color: transparent;
+  border-bottom: 2px rgba(0, 0, 0, 0.6) solid;
+  font-size: 50px;
+  text-align: center;
+  font-weight: 500;
+  color: white;
+}
+#login-form :first-child::placeholder {
+  color: rgb(255, 255, 255, 0.7);
+}
+#login-form :first-child:focus {
+  outline: none;
+}
+#login-form :last-child {
+  border: none;
+  border-radius: 500px;
+  font-size: 30px;
+  background-color: rgba(0, 0, 0, 0.3);
+  color: white;
+  padding: 8px 12px;
+}
+#login-form :last-child:hover {
+  transform: scale(1.3, 1.3);
+}
+
+/* mainContainer */
+#mainContainer {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+#greeting {
+  margin-top: 230px;
+  margin-bottom: 100px;
+  color: white;
+  font-size: 60px;
+}
+
+/* 할일 입력창 */
+#todo-form :first-child {
+  width: 400px;
+  margin-right: 25px;
+  border: none;
+  background-color: transparent;
+  border-bottom: 2px rgba(0, 0, 0, 0.6) solid;
+  font-size: 30px;
+  text-align: center;
+  font-weight: 400;
+  color: black;
+}
+#todo-form :first-child:focus {
+  outline: none;
+}
+
+#todo-form :last-child {
+  background-color: rgb(210, 180, 140, 0.7);
+  font-size: 20px;
+  border-radius: 200px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px 7px;
+}
+
+#todo-list {
+  width: 180px;
+  margin-top: 20px;
+  margin-left: -100px;
+}
+
+#todo-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  height: 30px;
+  margin: 20px 0px;
+  padding: 0px 10px;
+  background-color: rgb(255, 255, 255, 0.4);
+  border-radius: 100px;
+}
+
+#todo-list li span {
+  color: black;
+  font-size: 18px;
+}
+
+#todo-list li button {
+  border: none;
+  background-color: wheat;
+  color: rgba(12, 7, 7, 0.6);
+  width: 30px;
+  font-size: 20px;
+  border-radius: 40%;
+}
+
+#quote {
+  position: absolute;
+  bottom: 100px;
+  text-align: center;
+  font-weight: 600;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.3);
+}

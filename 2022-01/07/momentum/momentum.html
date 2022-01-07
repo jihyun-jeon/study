@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Momentum App</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!--1. clock-->
+    <div id="clockContainer">
+      <h2 class="clock">00:00:00</h2>
+    </div>
+
+    <div id="mainContainer">
+      <h2 id="greeting" class="hidden"></h2>
+
+      <!--3. todolist-->
+      <form id="todo-form" class="hidden">
+        <input type="text" placeholder="할일을 입력하세요." />
+        <input type="submit" value="추가" />
+      </form>
+      <ul id="todo-list" class="hidden"></ul>
+
+      <!--4. quote-->
+      <div id="quote" class="hidden">
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+    <!--2. login form-->
+    <form id="login-form" class="hidden">
+      <input
+        type="text"
+        required
+        maxlength="7"
+        placeholder="이름을 입력하세요."
+      />
+      <input type="submit" value="Log In" />
+    </form>
+    <!--5.weather-->
+    <div id="weather">
+      <div></div>
+      <div></div>
+    </div>
+
+    <script type="module" src="./files/greeting.js"></script>
+    <script type="module" src="./files/clock.js"></script>
+    <script type="module" src="./files/quote.js"></script>
+    <script type="module" src="./files/background.js"></script>
+    <script type="module" src="./files/todolist.js"></script>
+    <script type="module" src="./files/weather.js"></script>
+  </body>
+</html>
