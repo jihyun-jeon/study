@@ -1,6 +1,53 @@
-.green {
+@import './reset.css';
+/* .green {
   width: 50px;
   height: 50px;
   background-color: rgb(142, 165, 42);
+}
+
+.red {
+  width: 50px;
+  height: 50px;
+  background-color: red;
+} */
+
+.note {
+  /* 여기에 너비,높이가 지정되어 있으면 textarea에서 크기를 자동으로 조절할 때,
+   note보다 textarea 크기가 더 크다면 note는 그 크기를 따라가지 못하여 삐져나오게 됨.
+  */
+  border: 1px solid #ccc;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.wrapper {
+  position: relative;
+}
+
+.handle {
+  width: 12px;
+  height: 12px;
+  border: 1px solid #ccc;
+  background-color: rosybrown;
   position: absolute;
+  inset: 5px 0 0 5px;
+  cursor: grab;
+}
+.handle:active {
+  cursor: grabbing;
+}
+
+.text {
+  padding: 25px 15px;
+  background-color: transparent;
+  outline: none;
+  border: none;
+  /* 텍스트창 크기를 자동으로 조절하는 속성이 기본속성으로 들어가 있음. 이렇게 뺄 수 도 있음 */
+  /* resize: none; */
+}
+
+/* x버튼 */
+button {
+  position: absolute;
+  top: 5px;
+  right: 5px;
 }
