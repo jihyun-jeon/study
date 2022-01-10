@@ -1,0 +1,46 @@
+.addbtn {
+  background-color: red;
+}
+
+.note {
+  border: 1px solid #ccc;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.wrapper {
+  position: relative;
+  /* display: flex;
+  justify-content: space-between;
+  align-items: center; */
+}
+
+.handle {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border: 1px solid #ccc;
+  background-color: rosybrown;
+  inset: 5px auto auto 5px;
+  cursor: grab;
+}
+
+.delete {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border: 1px solid #ccc;
+  background-color: rosybrown;
+  inset: 5px 5px auto auto;
+  cursor: grab;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.text {
+  padding-top: 30px;
+  background-color: transparent;
+  border: none;
+  outline: none;
+}
+/**/
