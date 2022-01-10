@@ -9,16 +9,15 @@ function DragAndDrop(el) {
 }
 
 DragAndDrop.prototype.mouseDown = function (e) {
-  const divX = e.target.offsetLeft; // div요소의 x,y위치를 알아냄
-  const divY = e.target.offsetTop;
-  const mouseX = e.clientX; // 클릭한 마우스의 x,y위치를 알아냄
-  const mouseY = e.clientY;
-  this.diffX = mouseX - divX; // !!!!!!!!!!!
-  this.diffY = mouseY - divY;
+  //  e.target.offsetLeft; // div요소의 x,y위치를 알아냄
+  //  e.clientX; // 클릭한 마우스의 x,y위치를 알아냄
+  this.diffX = e.clientX - e.target.offsetLeft;
+  this.diffY = e.clientY - e.target.offsetTop;
 
-  // p1)bind를 안걸어주면 onMouseMove메서드의 this가 window로 됨. bind(this)를 걸어주면 this는 onMove메서드 안에 this로 지정됨.
-  // p2)메서드.bind로 실행하여 리턴된 함수는, 생성자함수의 프로토타입 객체안에 있는 메서드와 다른 메모리값에 저장됨.
-  // 따라서 두 함수는 다른 함수이므로 따로 인스턴스 객에안에 새로운 프로퍼티로 만들어줌.
+  // p1)bind를 안걸어주면 onMouseMove메서드의 this가 window로 됨. (이벤트가 걸린 돔요소가 this가 됨)
+  //    그래서 bind(this)를 걸어주면 this는 onMouseMove메서드의 안에서의 this로 지정됨.
+  // p2)메서드.bind로 실행하여 리턴된 함수는, 생성자함수의 프로토타입 객체안에 있는 메서드와 다른 레퍼런스가 생겨 다른 메모리값에 저장됨.
+  //     따라서 두 함수는 다른 함수이므로 따로 인스턴스 객체 안에 새로운 프로퍼티로 만들어줘야 함.
   this._onMouseMove = this.onMouseMove.bind(this);
   this._onMouseUp = this.onMouseUp.bind(this);
 
