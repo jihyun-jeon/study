@@ -41,7 +41,13 @@ function onMouseUp() {
 function onMouseDown(e) {
   // 윈도우의 마우스 무브,업 이벤트를 건다
 
-  // offsetX,Y와  offsetLeft 차이? - offsetX,Y는 마우스관련 이벤트고 잘 안씀
+  // offsetX,Y와  offsetLeft 차이? - offsetX,Y는 마우스관련 이벤트, offsetLeft는 요소의 위치를 나타내는 좌표
+  /* <마우스 위치를 나타내는 것들>
+  clientX ,clientY : 브라우저 창 기준으로 좌표를 표시함 // 전체 윈도우 내에서의 마우스의 위치
+  offsetX, offsetY : 이벤트가 걸려 있는 DOM객체를 기준으로 좌표를 표시함 // 캔버스 내에서의 마우스 위치
+  screenX, screenY : 전체 모니터 스크린 기준으로 좌표를 표시함
+   */
+
   const divX = e.target.offsetLeft; // div요소의 x,y위치를 알아냄
   const divY = e.target.offsetTop;
   const mouseX = e.clientX; // 클릭한 마우스의 x,y위치를 알아냄
