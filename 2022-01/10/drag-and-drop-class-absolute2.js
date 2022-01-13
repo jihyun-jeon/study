@@ -9,6 +9,9 @@ export class DragAndDrop {
    */
   constructor(noteEl, handleEl) {
     this.noteEl = noteEl;
+    this.left = this.noteEl.offsetLeft;
+    this.top = this.noteEl.offsetTop;
+
     this.handleEl = handleEl.handle;
     this.noteEl.style.position = 'absolute';
     this.diffX = 0;
@@ -39,12 +42,12 @@ export class DragAndDrop {
       const x = e.clientX; // 움직일때마다 마우스의 x,y위치를 알아냄
       const y = e.clientY;
       // 마우스 좌표와 div까지의 거리(diff)를 구한 후, 마우스 좌표에서 그 거리를 뺴줘야 함. 그래야 div가 마우스버튼 모서리에 놔지지 않게 됨.
-      const left = x - this.diffX;
-      const top = y - this.diffY;
+      this.left = x - this.diffX;
+      this.top = y - this.diffY;
 
       // 마우스가 움직일때 마다 div의 top,left값을 계속 지정해 준다.
-      this.noteEl.style.top = `${top}px`;
-      this.noteEl.style.left = `${left}px`;
+      this.noteEl.style.top = `${this.top}px`;
+      this.noteEl.style.left = `${this.left}px`;
     });
   }
 
@@ -53,7 +56,19 @@ export class DragAndDrop {
     window.removeEventListener('mouseup', this._onMouseUp);
   }
 
+  getPos() {
+    return [this.left, this.top];
+  }
+
+  setPos(x, y) {
+    this.left = x;
+    this.top = y;
+    this.noteEl.style.top = `${y}px`;
+    this.noteEl.style.left = `${x}px`;
+  }
+
   deleteFn() {
     this.handleEl.removeEventListener('mousedown', this._mouseDown);
   }
 }
+// event-emitter.js
