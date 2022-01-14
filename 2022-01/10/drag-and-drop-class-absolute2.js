@@ -1,6 +1,7 @@
 // <클래스화>
 // 실행코드
 // new DragAndDrop(this.el, { handle: this.el.querySelector('.handle') });
+import { EventEmitter } from './event-emitter';
 
 export class DragAndDrop {
   /**
@@ -18,6 +19,9 @@ export class DragAndDrop {
     this.diffY = 0;
     this._mouseDown = this.mouseDown.bind(this);
     this.handleEl.addEventListener('mousedown', this._mouseDown);
+
+    //
+    this.events = new EventEmitter();
   }
 
   mouseDown(e) {
@@ -54,6 +58,7 @@ export class DragAndDrop {
   onMouseUp() {
     window.removeEventListener('mousemove', this._onMouseMove);
     window.removeEventListener('mouseup', this._onMouseUp);
+    this.events.emit('move'); // m3 - 마우스무브 이벤트가 발생됨을 노트에게 알림.
   }
 
   getPos() {

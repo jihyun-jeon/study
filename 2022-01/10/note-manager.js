@@ -1,4 +1,5 @@
 import { DragAndDrop } from './drag-and-drop-class-absolute2'; // 그래그앤드롭 파일 가져옴
+import { EventEmitter } from './event-emitter';
 
 class Notelist {
   constructor() {
@@ -20,8 +21,14 @@ class Notelist {
 
     // [3.새로고침시 저장된 내용 받아와서 렌더해줌]
     const storagedNote = localStorage.getItem('noteObj');
-    const noteArr = JSON.parse(storagedNote);
-    console.log(noteArr);
+    const noteArr = JSON.parse(storagedNote); // [{x,y,text},{}]
+
+    if (noteArr) {
+      noteArr.forEach((el) => {
+        // 여기는 setData를 해야함
+        this.createNote(el);
+      });
+    }
   }
 
   save() {
@@ -30,27 +37,26 @@ class Notelist {
   }
 
   onClickAdd() {
-    const note = new Note();
+    // 여기는 save를 해야함
+    this.createNote();
+  }
+
+  createNote(el) {
+    const note = new Note(this.list);
     this.notes.push(note);
-    this.save(); // 인스턴스 객체들을 strage 해줌
-    this.list.appendChild(note.el);
 
-    // <Notelist에서 Note 생성자 함수에 ListIndelete를 실행하는 deleteMtd메서드를 추가해줌.>
-    /* (방법1).에로우함수 - 원래 에로우함수가 아니라면, 메소드를 호출한 객체인 note가 this가 됨.
-     근데 에로우 함수여서 한단계 위에있는 컨텍스트인 notelist가 this가 됨. */
-    // note.deleteMtd = (id) => {
-    //   this.ListIndelete(id); // 에로우 함수에서의 this는 notelist임. 목록을 관리하는 노트리스트에서 삭제기능 구현하도록 하기위해.
-    // };
+    if (el) {
+      note.setData(el.x, el.y, el.text);
+    } else {
+      this.save(); // 인스턴스 객체들을 strage 해줌
+    }
 
-    // (방법2).bind사용
-    /* bind를 사용하면 this가 지정된 ListIndelete"함수를 반환"할 수 있다.
-      ListIndelete(id) 함수 자체가 ListIndelete의 this로 하여 반환됨.
-      bind(this)에서의 this는, ListIndelete의 this이고, 이는 notelist임.
-    */
-    note.deleteMtd = this.ListIndelete.bind(this);
-    // bind 안해주면 this는 note인스턴스가 됨.
-    // 메소드로써 함수(deleteMtd())를 실행했을때: this는 그 메소드(함수)를 호출한 객체(쉽게말하면 메서드를 갖고있는 객체)를 가리키게 되서
-    // 여기에 인자를 받는 함수가 없어도 ListIndelete(id)에 인자를 받는게 있어서 작동됨.
+    // 삭제버튼 추가
+    note.events.on('delete', (id) => {
+      this.ListIndelete(id);
+    });
+    note.events.on('move', () => this.save()); // m2(2) - 노트에서 move 이벤트 발생시 실행될 함수를 노트리스트에서 등록해 줌.
+    note.events.on('input', () => this.save());
   }
 
   ListIndelete(id) {
@@ -81,16 +87,25 @@ class Notelist {
 
 // [[3.note 생성하는 클래스]]
 class Note {
-  constructor() {
+  constructor(list) {
     this.id = Date.now(); // 각note에 아이디값을 만들어줌
     this.el = document.createElement('div');
     this.el.classList.add('note');
+    // t
+
     this.el.innerHTML = ` <div class="wrapper">
       <button type="button" class="handle"></button>
       <button type="button" class="delete">x</button>
       <textarea class="text"></textarea>
     </div>
   `;
+
+    list.appendChild(this.el);
+
+    this.dnd = new DragAndDrop(this.el, {
+      handle: this.el.querySelector('.handle'),
+    });
+
     this.text = this.el.querySelector('.text');
 
     this.deleteBtn = this.el.querySelector('.delete');
@@ -98,17 +113,29 @@ class Note {
 
     // handle에 드래그앤 드롭을 걸어줌.
     // note 삭제시 deletefn 호출위해 새로운 프로퍼티로 저장해 둠.
-    this.dnd = new DragAndDrop(this.el, {
-      handle: this.el.querySelector('.handle'),
+
+    //
+    this.events = new EventEmitter();
+    this.dnd.events.on('move', () => {
+      this.events.emit('move');
     });
+
+    this.text.addEventListener('input', this.textChange.bind(this)); // input은 입력하는 즉시 이벤트 발생, change는 입력창 외의 다른 곳을 눌러야 이벤트 발생됨.
+  }
+
+  textChange() {
+    this.events.emit('input', this.id);
   }
 
   noteInDelete() {
     this.dnd.deleteFn(); // 이벤트를 삭제한 후 note를 삭제함
     // this.el.remove(); // Note자체에서 자신을 삭제하는 기능을 넣는게 아니라, Notelist에서 각 노트를 관리하기 위해, 리스트에서 삭제하도록 함.
-    this.deleteMtd(this.id);
+
     // <콜백방식!> 비동기 실행에서의 콜백함수란 - 당장 실행되는 것이 아니라, 나중에 어떤 조건이 만족된 때 실행되는 함수
     // 부모요소가 준 함수를 자식요소에서 삭제버튼을 누렀을 떄 부모요소에 있는 함수를 호출하게 됨.
+
+    this.events.emit('delete', this.id); // d2 - 노트의 삭제버튼 눌렀다는 이벤트 발생을 알림. 그리고 on에서 설정해준 delete키값에 등록된 함수 찾아서 실행됨.
+    this.events.off('delete'); // d3 - 그 해당 이벤트-함수 프로퍼티 삭제함
   }
 
   // [note의 x,y,text내용 정보 받아오는 메서드]

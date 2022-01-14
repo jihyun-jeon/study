@@ -22,6 +22,7 @@ export class EventEmitter {
   }
 }
 
+/*
 class DragAndDrop {
   constructor() {
     this.events = new EventEmitter(); // m1 - 드래그앤드롭에서 마우스무브 이벤트 발생시, 노트에게 알리기 위해 이벤트이미터 갖게됨.
@@ -64,3 +65,4 @@ class NoteList {
     note.events.on('move', () => this.save()); // m2(2) - 노트에서 move 이벤트 발생시 실행될 함수를 노트리스트에서 등록해 줌.
   }
 }
+*/
