@@ -71,4 +71,3 @@ export class DragAndDrop {
     this.handleEl.removeEventListener('mousedown', this._mouseDown);
   }
 }
-// event-emitter.js
