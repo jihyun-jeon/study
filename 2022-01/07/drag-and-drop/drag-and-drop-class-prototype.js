@@ -8,7 +8,7 @@ function DragAndDrop(el) {
   // 이벤트 핸들러 안의 콜백함수가 실행될 때의 this는 : 그 이벤트를 바인딩 한 html 돔 엘리먼트가 this가 된다.
   // 콜백함수가 실행될 떄, 그 콜백함수 내의 this는 이벤트가 걸린 요소인 this.el 됨.
   // 근데 mouseDown함수내의 this는 인스턴스객체 여야 하므로로, bind로 this를 지정해줌, 함수가 실행까진 안되도록 bind 씀
-  // bind("this")에서의 this는 그 메서드 내에서의 this인 "인스턴스 객체"가 됨
+  // bind("this")에서의 this는 mousedown 메서드 내에서의 this인 "인스턴스 객체"가 됨
   //
   // 근데, mouseDown가 화살표 함수라면: 자신을 감싸고 있는 컨텍스트의 this로 됨. 즉, 한단계 위의 this로 지정됨
   // 그래서 mouseDown의 this는 window가 되버려서 이렇게하면 오류남!

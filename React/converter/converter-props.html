@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+  <!--react js :interactive한 ui를 만들게 함. 이벤트 같은거 할 수 있도록 함-->
+  <script src="https://unpkg.com/react@17.0.2/umd/react.development.js "></script>
+  <!--react dom :모든 react요소들을 html 바디에 두도록 함-->
+  <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+  <!--jsx:JSX – 자바스크립트를 확장한 문법. html 형식처럼 씀 / babel: 트랜스파일러. JSX를 브라우저가 온전히 이해하지 못하므로 오리지날 react코드로 이해할 수 있게 변환해줌 -->
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <!-- PropTypes: jsx에서 props 프로퍼티의 타입을 확인할 수 있게 해줌-->
+  <script src="https://unpkg.com/prop-types@15.7.2/prop-types.js"></script>
+
+  <script type="text/babel">
+    // [자식 컴포넌트] - "자식"에서 이벤트 발생시키면, "부모"애서 리렌더 됨.
+    function Btn({ title, fontSize = 20, btnClick }) {
+      /* 변수명과 객체의 프로퍼티명이 같을떄 축약으로 사용됨, title = obj.title */
+      // 인자가 존재하지 않을 경우 기본값을 20으로 지정해줌.
+      // 컴포넌트 함수를 실행해주면서 "하나의  인자(객체임)"를 받을 수 있음
+      // obj = {title :"Save Changes" ,  changeValue : changefn }
+
+      return (
+        <button
+          onClick={btnClick}
+          style={{
+            backgroundColor: 'tomato',
+            color: 'white',
+            padding: '10px 20px',
+            border: 0,
+            borderRadius: 10,
+            fontSize, // fontSize: fontSize 의 축약
+          }}
+        >
+          {title}
+        </button>
+      );
+    }
+
+    //[props의 type이 어떻게 되는지 react에게 설명해 주고 있음.]
+    Btn.propTypes = {
+      // title은 스트링이여야 하고, fontsize는 넘버여야 함.
+      title: PropTypes.string,
+      fontSize: PropTypes.number.isRequired, // .isRequired 를 붙이면, 그 인자가 반드시 지정되어 있어야 함.
+    };
+
+    // [부모 컴포넌트]
+    function App() {
+      const [value, setValue] = React.useState('Save Changes');
+
+      const changefn = () => setValue('Revert!');
+
+      // Btn 함수를 실행시키면서 인자를 전달하고 있는 것임(속성을 주고있는게x!!)
+      return (
+        <div>
+          <Btn title={value} fontSize={18} btnClick={changefn} />
+          <Btn title="continue" />
+        </div>
+      );
+    }
+
+    const root = document.getElementById('root');
+    ReactDOM.render(<App />, root);
+  </script>
+</html>

@@ -37,6 +37,7 @@ function onMouseMove(e) {
   offsetX, offsetY : 이벤트가 걸려 있는 DOM객체를 기준으로 좌표를 표시함 // 캔버스 내에서의 마우스 위치
   screenX, screenY : 전체 모니터 스크린 기준으로 좌표를 표시함
    */
+  //  offsetX,Y는 마우스관련 이벤트, offsetLeft는 요소의 위치를 나타내는 좌표
 
   // 캔버스 안에서의 마우스의 위치를 알아야 함
   const x = e.offsetX;

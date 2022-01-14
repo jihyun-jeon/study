@@ -4,15 +4,15 @@ function ProgressBar(id, show) {
   this.containerDiv = document.querySelector(id);
   this.containerDiv.classList.add('container');
 
-  const barEl = document.createElement('div');
-  barEl.classList.add('progress-bar');
+  this.barEl = document.createElement('div');
+  this.barEl.classList.add('progress-bar');
 
-  this.containerDiv.appendChild(barEl);
+  this.containerDiv.appendChild(this.barEl);
 
   if (show.showPercentage) {
-    const showEl = document.createElement('div');
-    showEl.innerHTML = '0%';
-    barEl.appendChild(showEl);
+    this.showEl = document.createElement('div');
+    this.showEl.innerHTML = '0%';
+    this.barEl.appendChild(this.showEl);
   }
 }
 
@@ -22,17 +22,14 @@ ProgressBar.prototype.set = function (percent) {
   }
 
   const width = this.containerDiv.offsetWidth * (percent * 0.01);
-  const barEl = this.containerDiv.querySelector('.progress-bar');
-  const percentDiv = barEl.querySelector('div');
+  this.barEl.style.width = `${width}px`;
 
-  barEl.style.width = `${width}px`;
-
-  if (percentDiv) {
-    percentDiv.innerHTML = `${percent}%`;
+  if (this.showEl) {
+    this.showEl.innerHTML = `${percent}%`;
   }
 };
 
-// 살행코드 - progress 진행상황 출력
+// <살행코드 - progress 진행상황 출력>
 // const p1 = new ProgressBar('#one', { showPercentage: true });
 // p1.set(30);
 
