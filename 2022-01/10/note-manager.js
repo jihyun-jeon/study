@@ -23,6 +23,7 @@ class Notelist {
     const storagedNote = localStorage.getItem('noteObj');
     const noteArr = JSON.parse(storagedNote); // [{x,y,text},{}]
 
+    // skip
     if (noteArr) {
       noteArr.forEach((el) => {
         // 여기는 setData를 해야함
@@ -32,6 +33,7 @@ class Notelist {
   }
 
   save() {
+    // skip
     const noteDataArr = this.notes.map((el) => el.getData());
     localStorage.setItem('noteObj', JSON.stringify(noteDataArr)); // String(this.notes) <-이렇게 하면 인스턴스객체안에 내장된 toString()이 실행되서 배열자체가 문자로 되는게 아니라, 배열 안에있는 요소들이 각각 문자로 나옴.
   }
@@ -102,6 +104,8 @@ class Note {
 
     list.appendChild(this.el);
 
+    // handle에 드래그앤 드롭을 걸어줌.
+    // note 삭제시 deletefn 호출위해 새로운 프로퍼티로 저장해 둠.
     this.dnd = new DragAndDrop(this.el, {
       handle: this.el.querySelector('.handle'),
     });
@@ -111,11 +115,8 @@ class Note {
     this.deleteBtn = this.el.querySelector('.delete');
     this.deleteBtn.addEventListener('click', this.noteInDelete.bind(this));
 
-    // handle에 드래그앤 드롭을 걸어줌.
-    // note 삭제시 deletefn 호출위해 새로운 프로퍼티로 저장해 둠.
-
-    //
     this.events = new EventEmitter();
+
     this.dnd.events.on('move', () => {
       this.events.emit('move');
     });
