@@ -226,19 +226,36 @@ calc(() => "3" + "5").catch((err) => {
 // console.log(print());
 
 /* async 붙은 함수 안에 await쓰면 그 부분은 비동기 실행이 됨. */
+// async function fetchAndPrint() {
+//   console.log(2);
+//   const response = await fetch('https://jsonplaceholder.typicode.com/users');
+//   console.log(7);
+//   const result = response.json(); // await은 프로미스를 리턴하는게 아니라 값만 리턴함! 따라서 then()쓰지x
+//   console.log(result);
+// }
 
-async function fetchAndPrint() {
-  console.log(2);
-  const response = await fetch('https://jsonplaceholder.typicode.com/users');
-  console.log(7);
-  const result = response.json(); // await은 프로미스를 리턴하는게 아니라 값만 리턴함! 따라서 then()쓰지x
-  console.log(result);
-}
+// console.log(1); // 실행순서: 1
+// fetchAndPrint(); // 실행순서: 2
+// console.log(3); // 실행순서: 5
+// console.log(4); // 실행순서: 6
+// console.log(5); // 실행순서: 7
+// console.log(6); // 실행순서: 8
+// // 결과 1,2,3,4,5,6,7,[result값]
 
-console.log(1); // 실행순서: 1
-fetchAndPrint(); // 실행순서: 2
-console.log(3); // 실행순서: 5
-console.log(4); // 실행순서: 6
-console.log(5); // 실행순서: 7
-console.log(6); // 실행순서: 8
-// 결과 1,2,3,4,5,6,7,[result값]
+/* try catch finally */
+// async function fetchAndPrint() {
+//   // 1.프로미스 객체가 fullfiled 일 때
+//   try {
+//     const response = await fetch('https://www.google.www');
+//     const result = await response.text();
+//     console.log(result);
+//   } catch (error) {
+//     // 2.try블럭 안에서 await가 붙은 프로미스 객체 중 rejected 상태가 될 경우 catch가 실행됨.
+//     console.log(error);
+//   } finally {
+//     // 3.프로미스 객체 상태와 상관없이 무조건 실행됨
+//     console.log('exit');
+//   }
+// }
+
+// fetchAndPrint();
