@@ -1,0 +1,42 @@
+html,
+body {
+  margin: 0px;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  margin: 0px;
+}
+
+.bulb {
+  display: inline-block; /* 블록요소를 인라인요소로 만들어 가로정렬함*/
+  width: 200px;
+  text-align: center; /*circle은 div지만 inline으로 지정했기 떄문에 text처럼 정렬됨.*/
+}
+
+.circle {
+  width: 100px;
+  /*div는 블록요소이기 떄문에 위스를 100으로 지정해줬다 해도, 여백이 있으면 그 여백만큼 너비 더 차지하게 됨.
+    따라서 인라인 요소로 만들어서 너비 다 안차지하게 해줘야 함.
+  */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 100px;
+  border-radius: 50%;
+  background-color: cadetblue;
+}
+
+button {
+  width: 50px;
+  height: 30px;
+  margin: 0px 10px;
+}
+
+.btnContainer {
+  text-align: center;
+  margin-top: 50px;
+}

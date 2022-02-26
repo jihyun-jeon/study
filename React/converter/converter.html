@@ -18,169 +18,170 @@
 
   <script type="text/babel">
     // react js는 자바스크립트를 먼저 다뤄 작성한 후, 그걸 html로 만듬
-    /*
-        function App() {
-          // console.log(React.useState(0)); // [undefined, f] undefined: data, f:data를 바꾸는 함수
-          const [counter, modifier] = React.useState(0); // 각 배열의 요소를 변수로 한번에 선언함
-          const onClick = () => {
-            // <state의 값을 바꾸는 방법>
-            // 방법1)직접 값을 설정해주는 것
-            // modifier(counter + 1); // modifier("value");
-            //
-            // 방법2) 함수를 전달(더 안전).  리액트가 current가 확실히 바뀐 현재 값이라는걸 보장하게됨.
-            modifier((current) => current + 1);/ // 화살표 함수에서 본문이 한줄이면 {return... } 생략할 수 있음.
-            // (함수의 첫번째 인자는 현재 state 이다) // modifier함수에는 return이 생략된 것이라 봐도ㅇ
 
-            // 질문
-            // 1) 그냥 counter , {counter}은 언제 쓰는거? //  jsx코드의 html템플릿에서 자바스크립트 코드 쓸떈 {}써야 됨.
-            // 2) 카운터는 const인데 counter에 값이 어떻게 저장되는지? <- modifier를 하면 app함수 자체가 다시 실행되는데, 상태값이 바뀌면 그 바뀐 값을 다른데 저장하고 있다가
-            //    다시 app 실행시 state에 저장된 값을 갖다 쓰게 됨. counter변수 값이 바뀌는게 아님!
-            // 3) 값을 바꾸면 자동으로 리렌더 됨. <-(컴포넌트)html렌더하는 단위, 즉 app함수자체./(useState를 쓴다는 것은)컴포넌트가 상태(counter값)를 갖고있다는 걸 의미.
-            //   (modifier를 실행하여 state(counter값)를 바꾸면)다시 리렌더 됨.
-          };
-
-          return (
-            <div>
-              <h3>Totla click: {counter} </h3>
-              <button onClick={onClick}>Click me</button>
-            </div>
-          );
-
-          // React.js는 똑똑한 기능을 가지고 있기 때문에 state값이 바뀌면 app 컴포넌트 자체를 자동으로 리렌더링해준다.
-          // 하지만! 그냥 똑똑한게 아니라 엄청 똑똑하기 때문에 '실제로 바뀌는 값'만 판단해서 불필요한 리렌더링을 제외한 채로 동작한다!!!
-        }
-        */
-
-    // [컴포넌트1]
-    function MinutesToHour() {
-      // 1.
-      const [amount, setAmount] = React.useState(); // data:분,시간 데이터를 받음/  modifier: 분,시간 데이터를 업데이트 함.
-      const [inverted, setInverted] = React.useState(false); // disabled이 true인지, false인지 나타내는 값.
-
-      // 2.
-      const onChange = (e) => {
-        setAmount(e.target.value); // state값을 업데이트 시키는 함수가 작동됨.
-      };
-      const reset = () => {
-        setAmount(0);
-      };
-      const onInvert = () => {
-        reset();
-        setInverted((current) => !current); //setInverted(!inverted) 와 같음 // filpped의 값을 바꿈. t->f f->t
-        // disable = true <- 입력안되게 됨.
-      };
-
-      // 3.setAmount, setInverted를 사용할때 마다 state가 바뀌고 자동으로 리렌더됨.
-      return (
-        <div>
-          <h3>Minutes To Hours</h3>
-          <label htmlFor="minutes">Minutes</label>
-          <input
-            disabled={inverted}
-            onChange={onChange} // 이벤트를 걸어줌.(사용자가 input에 값을 입력하면 onChange함수 실행됨)
-            value={inverted ? amount * 60 : amount} // input의 값은 state의 값이 됨.
-            // inverted가 true면 hours에서 입력한 값의 *60 한 값이 나오고, false면 입력할 수 있어서 입력한 amount값 그대로 나옴.
-            placeholder="Minutes"
-            type="number"
-            id="minutes"
-          />
-          <h4>you wrote {amount}</h4>
-
-          <label htmlFor="hours">Hours</label>
-          <input
-            // inverted가 true여서 입력할 수 있으면 입력한 amount값 그대로 가져옴. false면 입력할 수 없어서 minute에서 입력한 값의 *60 한 값이 출력되고,
-            value={inverted ? amount : Math.round(amount / 60)}
-            placeholder="Hours"
-            type="number"
-            id="hours"
-            disabled={!inverted}
-            onChange={onChange}
-          />
-          <button onClick={reset}>Reset</button>
-          <button onClick={onInvert}>
-            {inverted ? 'Turn Back' : 'Inverted'}
-          </button>
-        </div>
-      );
-    }
-
-    // [컴포넌트2] // 숙제! https://react-coverter.netlify.app/
-    function KmToMiles() {
-      // 1)
-      const [amount, setAmount] = React.useState();
-      const [inverted, setInverted] = React.useState(false);
-
-      // 2)
-      const onChange = (e) => {
-        setAmount(e.target.value);
-      };
-      const reset = () => {
-        setAmount(0);
-      };
-      const onConvert = () => {
-        reset();
-        setInverted((current) => !current);
-      };
-      // 3)
-      return (
-        <div>
-          <h3>Km To Miles</h3>
-          <label htmlFor="Km">Km</label>
-          <input
-            disabled={inverted}
-            onChange={onChange}
-            placeholder="Km"
-            type="number"
-            id="Km"
-            value={inverted ? amount / 1000 : amount}
-          />
-          <h4>you wrote {amount}</h4>
-
-          <label htmlFor="Meter">Meter</label>
-          <input
-            placeholder="Meter"
-            type="number"
-            id="Meter"
-            onChange={onChange}
-            disabled={!inverted}
-            value={inverted ? amount : amount * 1000}
-          />
-          <button onClick={reset}>reset</button>
-          <button onClick={onConvert}>convert</button>
-        </div>
-      );
-    }
-
-    function Choice() {
-      return <h3>Choice option!</h3>;
-    }
-
-    // [컴포넌트3] - 렌더하는 역활
     function App() {
-      const [index, setIndex] = React.useState('a'); // 변환단위를 선택하는 기능
-      // 처음엔 option value 0으로 시작되고, option 값(state값)을 바꾸면 index 값도 바뀌어 app컴포넌트가 리렌더됨.
+      // console.log(React.useState(0)); // [undefined, fn] undefined: data, f:data를 바꾸는 함수
+      const [counter, modifier] = React.useState(0); // 각 배열의 요소를 변수로 한번에 선언함
+      const onClick = () => {
+        // <state의 값을 바꾸는 방법>
+        // 방법1)직접 값을 설정해주는 것
+        // modifier(counter + 1); // modifier("value");
+        //
+        // 방법2) 함수를 전달(더 안전).  리액트가 current가 확실히 바뀐 현재 값이라는걸 보장하게됨.
+        modifier((current) => current + 1); // 화살표 함수에서 본문이 한줄이면 {return... } 생략할 수 있음.
+        // (함수의 첫번째 인자는 현재 state 이다) // modifier함수에는 return이 생략된 것이라 봐도ㅇ
 
-      //
-      const onSelect = (e) => {
-        setIndex(e.target.value);
+        // 질문
+        // 1) 그냥 counter , {counter}은 언제 쓰는거? //  jsx코드의 html템플릿에서 자바스크립트 코드 쓸떈 {}써야 됨.
+        // 2) 카운터는 const인데 counter에 값이 어떻게 저장되는지? <- modifier를 하면 app함수 자체가 다시 실행되는데, 상태값이 바뀌면 그 바뀐 값을 다른데 저장하고 있다가
+        //    다시 app 실행시 state에 저장된 값을 갖다 쓰게 됨. counter변수 값이 바뀌는게 아님!
+        // 3) 값을 바꾸면 자동으로 리렌더 됨. <-(컴포넌트)html렌더하는 단위, 즉 app함수자체./(useState를 쓴다는 것은)컴포넌트가 상태(counter값)를 갖고있다는 걸 의미.
+        //   (modifier를 실행하여 state(counter값)를 바꾸면)다시 리렌더 됨.
       };
 
-      console.log(index);
       return (
         <div>
-          <h1 className="hi">Super Converter</h1>
-          <select onChange={onSelect} value={index}>
-            <option value="a">Choice!</option>
-            <option value="0">Minutes & Hours</option>
-            <option value="1">Km & Miles</option>
-          </select>
-          <hr />
-          {index === 'a' ? <Choice /> : null}
-          {index === '0' ? <MinutesToHour /> : null}
-          {index === '1' ? <KmToMiles /> : null}
+          <h3>Totla click: {counter} </h3>
+          <button onClick={onClick}>Click me</button>
         </div>
       );
+
+      // React.js는 똑똑한 기능을 가지고 있기 때문에 state값이 바뀌면 app 컴포넌트 자체를 자동으로 리렌더링해준다.
+      // 하지만! 그냥 똑똑한게 아니라 엄청 똑똑하기 때문에 '실제로 바뀌는 값'만 판단해서 불필요한 리렌더링을 제외한 채로 동작한다!!!
     }
+
+    /*
+    // // [컴포넌트1]
+    // function MinutesToHour() {
+    //   // 1.
+    //   const [amount, setAmount] = React.useState(); // data:분,시간 데이터를 받음/  modifier: 분,시간 데이터를 업데이트 함.
+    //   const [inverted, setInverted] = React.useState(false); // disabled이 true인지, false인지 나타내는 값.
+
+    //   // 2.
+    //   const onChange = (e) => {
+    //     setAmount(e.target.value); // state값을 업데이트 시키는 함수가 작동됨.
+    //   };
+    //   const reset = () => {
+    //     setAmount(0);
+    //   };
+    //   const onInvert = () => {
+    //     reset();
+    //     setInverted((current) => !current); //setInverted(!inverted) 와 같음 // filpped의 값을 바꿈. t->f f->t
+    //     // disable = true <- 입력안되게 됨.
+    //   };
+
+    //   // 3.setAmount, setInverted를 사용할때 마다 state가 바뀌고 자동으로 리렌더됨.
+    //   return (
+    //     <div>
+    //       <h3>Minutes To Hours</h3>
+    //       <label htmlFor="minutes">Minutes</label>
+    //       <input
+    //         disabled={inverted}
+    //         onChange={onChange} // 이벤트를 걸어줌.(사용자가 input에 값을 입력하면 onChange함수 실행됨)
+    //         value={inverted ? amount * 60 : amount} // input의 값은 state의 값이 됨.
+    //         // inverted가 true면 hours에서 입력한 값의 *60 한 값이 나오고, false면 입력할 수 있어서 입력한 amount값 그대로 나옴.
+    //         placeholder="Minutes"
+    //         type="number"
+    //         id="minutes"
+    //       />
+    //       <h4>you wrote {amount}</h4>
+
+    //       <label htmlFor="hours">Hours</label>
+    //       <input
+    //         // inverted가 true여서 입력할 수 있으면 입력한 amount값 그대로 가져옴. false면 입력할 수 없어서 minute에서 입력한 값의 *60 한 값이 출력되고,
+    //         value={inverted ? amount : Math.round(amount / 60)}
+    //         placeholder="Hours"
+    //         type="number"
+    //         id="hours"
+    //         disabled={!inverted}
+    //         onChange={onChange}
+    //       />
+    //       <button onClick={reset}>Reset</button>
+    //       <button onClick={onInvert}>
+    //         {inverted ? 'Turn Back' : 'Inverted'}
+    //       </button>
+    //     </div>
+    //   );
+    // }
+
+    // // [컴포넌트2] // 숙제! https://react-coverter.netlify.app/
+    // function KmToMiles() {
+    //   // 1)
+    //   const [amount, setAmount] = React.useState();
+    //   const [inverted, setInverted] = React.useState(false);
+
+    //   // 2)
+    //   const onChange = (e) => {
+    //     setAmount(e.target.value);
+    //   };
+    //   const reset = () => {
+    //     setAmount(0);
+    //   };
+    //   const onConvert = () => {
+    //     reset();
+    //     setInverted((current) => !current);
+    //   };
+    //   // 3)
+    //   return (
+    //     <div>
+    //       <h3>Km To Miles</h3>
+    //       <label htmlFor="Km">Km</label>
+    //       <input
+    //         disabled={inverted}
+    //         onChange={onChange}
+    //         placeholder="Km"
+    //         type="number"
+    //         id="Km"
+    //         value={inverted ? amount / 1000 : amount}
+    //       />
+    //       <h4>you wrote {amount}</h4>
+
+    //       <label htmlFor="Meter">Meter</label>
+    //       <input
+    //         placeholder="Meter"
+    //         type="number"
+    //         id="Meter"
+    //         onChange={onChange}
+    //         disabled={!inverted}
+    //         value={inverted ? amount : amount * 1000}
+    //       />
+    //       <button onClick={reset}>reset</button>
+    //       <button onClick={onConvert}>convert</button>
+    //     </div>
+    //   );
+    // }
+
+    // function Choice() {
+    //   return <h3>Choice option!</h3>;
+    // }
+
+    // // [컴포넌트3] - 렌더하는 역활
+    // function App() {
+    //   const [index, setIndex] = React.useState('a'); // 변환단위를 선택하는 기능
+    //   // 처음엔 option value 0으로 시작되고, option 값(state값)을 바꾸면 index 값도 바뀌어 app컴포넌트가 리렌더됨.
+
+    //   //
+    //   const onSelect = (e) => {
+    //     setIndex(e.target.value);
+    //   };
+
+    //   console.log(index);
+    //   return (
+    //     <div>
+    //       <h1 className="hi">Super Converter</h1>
+    //       <select onChange={onSelect} value={index}>
+    //         <option value="a">Choice!</option>
+    //         <option value="0">Minutes & Hours</option>
+    //         <option value="1">Km & Miles</option>
+    //       </select>
+    //       <hr />
+    //       {index === 'a' ? <Choice /> : null}
+    //       {index === '0' ? <MinutesToHour /> : null}
+    //       {index === '1' ? <KmToMiles /> : null}
+    //     </div>
+    //   );
+    // }
+    */
 
     const root = document.getElementById('root');
     ReactDOM.render(<App />, root);

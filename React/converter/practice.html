@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+  <!--react js :interactive한 ui를 만들게 함. 이벤트 같은거 할 수 있도록 함-->
+  <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
+  <!--react dom :모든 react요소들을 html 바디에 두도록 함-->
+  <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+  <!--jsx:JSX – 자바스크립트를 확장한 문법. html 형식처럼 씀 / babel: 트랜스파일러. JSX를 브라우저가 온전히 이해하지 못하므로 오리지날 react코드로 이해할 수 있게 변환해줌 -->
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script src="https://unpkg.com/prop-types@15.7.2/prop-types.js"></script>
+
+  <script type="text/babel">
+      // react js는 자바스크립트를 먼저 다뤄 작성한 후, 그걸 html로 만듬
+      /*
+      // [컴포넌트1]
+      function MinutesToHour() {
+        // 1.
+        const [amount, setAmount] = React.useState(); // data:분,시간 데이터를 받음/  modifier: 분,시간 데이터를 업데이트 함.
+        const [inverted, setInverted] = React.useState(false); // disabled이 true인지, false인지 나타내는 값.
+
+        // 2.
+        const onChange = (e) => {
+          setAmount(e.target.value); // state값을 업데이트 시키는 함수가 작동됨.
+        };
+        const reset = () => {
+          setAmount(0);
+        };
+        const onInvert = () => {
+          reset();
+          setInverted((current) => !current); //setInverted(!inverted) 와 같음 // filpped의 값을 바꿈. t->f f->t
+          // disable = true <- 입력안되게 됨.
+        };
+
+        // 3.setAmount, setInverted를 사용할때 마다 state가 바뀌고 자동으로 리렌더됨.
+        return (
+          <div>
+            <h3>Minutes To Hours</h3>
+            <label htmlFor="minutes">Minutes</label>
+            <input
+              disabled={inverted}
+              onChange={onChange} // 이벤트를 걸어줌.(사용자가 input에 값을 입력하면 onChange함수 실행됨)
+              value={inverted ? amount * 60 : amount} // input의 값은 state의 값이 됨.
+              // inverted가 true면 hours에서 입력한 값의 *60 한 값이 나오고, false면 입력할 수 있어서 입력한 amount값 그대로 나옴.
+              placeholder="Minutes"
+              type="number"
+              id="minutes"
+            />
+            <h4>you wrote {amount}</h4>
+
+            <label htmlFor="hours">Hours</label>
+            <input
+              // inverted가 true여서 입력할 수 있으면 입력한 amount값 그대로 가져옴. false면 입력할 수 없어서 minute에서 입력한 값의 *60 한 값이 출력되고,
+              value={inverted ? amount : Math.round(amount / 60)}
+              placeholder="Hours"
+              type="number"
+              id="hours"
+              disabled={!inverted}
+              onChange={onChange}
+            />
+            <button onClick={reset}>Reset</button>
+            <button onClick={onInvert}>
+              {inverted ? 'Turn Back' : 'Inverted'}
+            </button>
+          </div>
+        );
+      }
+
+      // [컴포넌트2] // 숙제! https://react-coverter.netlify.app/
+      function KmToMiles() {
+        // 1)
+        const [amount, setAmount] = React.useState();
+        const [inverted, setInverted] = React.useState(false);
+
+        // 2)
+        const onChange = (e) => {
+          setAmount(e.target.value);
+        };
+        const reset = () => {
+          setAmount(0);
+        };
+        const onConvert = () => {
+          reset();
+          setInverted((current) => !current);
+        };
+        // 3)
+        return (
+          <div>
+            <h3>Km To Miles</h3>
+            <label htmlFor="Km">Km</label>
+            <input
+              disabled={inverted}
+              onChange={onChange}
+              placeholder="Km"
+              type="number"
+              id="Km"
+              value={inverted ? amount / 1000 : amount}
+            />
+            <h4>you wrote {amount}</h4>
+
+            <label htmlFor="Meter">Meter</label>
+            <input
+              placeholder="Meter"
+              type="number"
+              id="Meter"
+              onChange={onChange}
+              disabled={!inverted}
+              value={inverted ? amount : amount * 1000}
+            />
+            <button onClick={reset}>reset</button>
+            <button onClick={onConvert}>convert</button>
+          </div>
+        );
+      }
+
+      function Choice() {
+        return <h3>Choice option!</h3>;
+      }
+
+      // [컴포넌트3] - 렌더하는 역활
+      function App() {
+        const [index, setIndex] = React.useState('a'); // 변환단위를 선택하는 기능
+        // 처음엔 option value 0으로 시작되고, option 값(state값)을 바꾸면 index 값도 바뀌어 app컴포넌트가 리렌더됨.
+
+        //
+        const onSelect = (e) => {
+          setIndex(e.target.value);
+        };
+
+        console.log(index);
+        return (
+          <div>
+            <h1 className="hi">Super Converter</h1>
+            <select onChange={onSelect} value={index}>
+              <option value="a">Choice!</option>
+              <option value="0">Minutes & Hours</option>
+              <option value="1">Km & Miles</option>
+            </select>
+            <hr />
+            {index === 'a' ? <Choice /> : null}
+            {index === '0' ? <MinutesToHour /> : null}
+            {index === '1' ? <KmToMiles /> : null}
+          </div>
+        );
+      }
+      */
+
+      // 부모 컴포넌트
+      function App() {
+        return (
+          <div>
+            <Btn title="save1" color="blue" number={1} />
+            <Btn title="save2" color="red" />
+          </div>
+        );
+      }
+
+      // 자식 컴포넌트에서의 prop의 기본값 설정가능
+    ]
+
+      // 자식 컴포넌트
+      function Btn({ title, color, number = 2 }) {
+        return (
+            <span>{number}</span>
+        );
+      }
+
+      // 4.2강의 뒤에 기본값 주는거 다시 보고 필기해놓기
+      // prop의 타입을 지정해 줌.
+      // isRequired 붙이면 prop값 없을시 오류남
+      //
+      Btn.propTypes = {
+        title: PropTypes.string.isRequired,
+        color: PropTypes.string,
+        number: PropTypes.number,
+      };
+
+      const root = document.getElementById('root');
+      ReactDOM.render(<App />, root);
+  </script>
+</html>
