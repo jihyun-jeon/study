@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      @font-face {
+        font-family: gogo;
+        src: url('./holla/font/SCDream4.otf');
+      }
+
+      html,
+      body,
+      * {
+        margin: 0px;
+        padding: 0px;
+        font-family: gogo;
+      }
+      /* * {
+        box-sizing: border-box;
+      } */
+
+      #header {
+        color: white;
+        height: 530px;
+
+        background-image: url('./back.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+
+        text-align: center;
+        box-sizing: border-box;
+        padding-top: 100px;
+        margin-top: 50px;
+      }
+
+      #header h1 {
+        font-size: 18px;
+        font-weight: 500;
+        letter-spacing: 2px;
+        padding-bottom: 30px;
+      }
+
+      #header h2 {
+        font-size: 45px;
+        font-weight: 400;
+        line-height: 60px;
+      }
+
+      main {
+        width: 800px;
+        margin: 0 auto;
+        margin-top: 80px;
+      }
+
+      #benner {
+        background-color: rgb(248, 104, 158);
+        margin-bottom: 50px;
+      }
+      #benner p {
+        width: 200px;
+        background-color: white;
+        margin-left: 500px;
+        padding: 0px 5px;
+        text-align: center;
+      }
+      #benner p span {
+        letter-spacing: 3px;
+      }
+      #txt {
+        width: 700px;
+        margin: 0 auto;
+      }
+
+      #txt > p {
+        margin-bottom: 50px;
+        font-size: 15px;
+        line-height: 25px;
+        font-weight: 10;
+      }
+
+      .imgBox {
+        text-align: center;
+        color: rgb(180, 179, 179);
+        font-size: 14px;
+        margin-bottom: 30px;
+      }
+
+      #txt strong {
+        color: rgb(248, 104, 158);
+        font-weight: 1900;
+      }
+      #txt span {
+        font-size: 24px;
+        font-weight: bold;
+      }
+
+      #deg {
+        font-size: 24px;
+        font-weight: 900;
+      }
+
+      li {
+        list-style: none;
+        background-image: url('./icon2.png');
+        background-repeat: no-repeat;
+        background-position: 0px 5px;
+        padding-left: 10px;
+      }
+
+      ul {
+        margin-bottom: 100px;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <header id="header">
+        <h1>[리빙]홀라, 사용설명서</h1>
+        <h2>
+          겨울철 실내 적정온도<br />
+          적정습도 '몇 도'일까?<br />
+          (feat.난방비 절약방법)
+        </h2>
+      </header>
+      <main>
+        <div id="benner">
+          <p>
+            <span>1인 가구 매거진 <b>홀라</b></span
+            ><br />
+            홀로 즐기는 인생의 모든 것
+          </p>
+        </div>
+
+        <div id="txt">
+          <p>
+            추운 겨울, 밖에 있으면 드는 생각은
+            <b>'아 집에 미치도록 가고 싶다!!!'~</b> 차가운 기운이 몸에서 쉽사리
+            떠나<br />지 않아 보일러는 물론 히터까지 온갖 난방 기구를 동원해
+            집을 따뜻하게 만들곤 합니다.
+          </p>
+          <p>
+            하지만 그거 아시나요?
+            <u
+              >겨울철 실내 적정온도가 생각보다 <strong>매우 낮다</strong>는
+              사실!</u
+            >
+            물론, 우리 마음은 머리부터 발끝 손끝까지 다 따수웠으면~ 싶겠지만,
+            생각보다 실내 적정온도는 낮았습니다. 그렇다면 실내 적정온도 그리고
+            실내 적정습도 과연 몇 도 일까 궁금하지 않으세요?
+          </p>
+          <div class="imgBox">
+            <img src="./holla/liviingroom.png" alt="livingRoom" />
+            <p>아이고... 보기만 해도 따숩다..</p>
+          </div>
+          <p>
+            <span>겨울철 실내 적정온도</span>는 고작
+            <strong id="deg">18~20℃</strong> 입니다. 띠로리... 이 정도면 추운 것
+            아니냐고요? 자료에 따르면 이 정도 온도가 우리 몸의
+            <b>건강은 물론, 에너지 절약에 도움</b>이 된다고 해요. 그 이유는 여러
+            가지가 있는데요.
+          </p>
+          <div class="imgBox">
+            <img src="./holla/iceman.png" alt="iceman" />
+            <p>우리 모두 알쟈나요... 인간은 적응의 동물이죠;</p>
+          </div>
+          <p>
+            먼저
+            <b>실내외 온도차를 줄여야 겨울철 체감온도를 높일 수 있기 때문</b
+            >이에요. 게다가 실내외 온도 차이가 크면 혈관의 압축과 팽창이 크게
+            반복돼 혈액순환에도 안 좋다는 것!
+          </p>
+          <p>
+            겨울에는 뜨거운 집안에서 반팔을 입고 있는 것보다,
+            <strong>적정온도를 유지하며 내복을 입고 체온을 유지하는 것</strong
+            >이 가장 바람직합니다.
+          </p>
+          <div class="imgBox">
+            <img
+              src="./holla/cat1.gif"
+              alt="cat1"
+              width="260px"
+              height="350px"
+            />
+            <img
+              src="./holla/cat2.gif"
+              alt="cat2"
+              width="435px"
+              height="350px"
+            />
+            <p>고양이도 좋아하는 가.습.기.</p>
+          </div>
+          <p>
+            아 참, 실내 적정온도도 중요하지만 건강을 생각한다면 역시
+            <b>습도</b>도 신경 써 줄 필요가 있습니다.
+          </p>
+          <p>
+            기관지 점막이 건조해지면 바이러스 침투가 쉬워지거든요. 면역력이
+            중요한 요즘! 가습기를 사용하고 적정 온도를 지켜
+            <strong>40~70% 습도</strong>를 꼭 유지해 주시길.
+            <b>적절한 습기는 공기의 순환에도 큰 도움</b>이 됩니다.
+          </p>
+          <div>
+            list-style를 background-image로 적용해보기
+            <ul>
+              <li>1.놀기</li>
+              <li>2.놀기</li>
+              <li>3.놀기</li>
+            </ul>
+          </div>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>
