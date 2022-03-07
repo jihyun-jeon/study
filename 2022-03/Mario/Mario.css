@@ -1,0 +1,17 @@
+button {
+  width: 300px;
+  height: 300px;
+  border: 1px solid black;
+}
+
+div {
+  position: relative;
+}
+
+span {
+  font-size: 18px;
+  font-weight: bold;
+  position: absolute;
+  top: 15px;
+  left: 15px;
+}
