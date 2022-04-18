@@ -1,0 +1,127 @@
+* {
+  box-sizing: border-box;
+}
+
+#container {
+  display: flex;
+  flex-direction: row;
+}
+
+/* 왼쪽 페이지  */
+header {
+  z-index: 3;
+  background-color: lightgray;
+  width: 40%;
+  height: 100%;
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: brown;
+}
+header dl {
+  width: 70%;
+}
+
+header dl dt {
+  font-size: 80px;
+  padding-bottom: 240px;
+}
+
+header dl dd:nth-of-type(1) {
+  font-size: 35px;
+  padding-bottom: 30px;
+}
+
+header dl dd:nth-of-type(2) {
+  font-size: 20px;
+  padding-bottom: 40px;
+}
+
+header dl dd:nth-of-type(3) a {
+  font-size: 20px;
+  display: inline-block;
+  padding-right: 30px;
+  padding-bottom: 5px;
+  text-decoration: underline;
+}
+
+header dl dd:nth-of-type(4) {
+  padding-top: 30px;
+  font-size: 15px;
+}
+
+/* 오른쪽 페이지  */
+#rightPage {
+  position: absolute;
+  padding-left: 40%;
+  width: 100%;
+}
+
+#rightPage nav {
+  z-index: 2;
+  background-color: rgba(165, 42, 42, 0.9);
+  width: 60%;
+  height: 200px;
+  position: fixed;
+  font-size: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#rightPage main {
+  z-index: 1;
+  background-color: brown;
+  width: 100%;
+  height: 3000px;
+  margin-top: 200px;
+}
+
+.movie {
+  padding-bottom: 30px;
+  /* box-shadow: 0 4px 4px -4px rgba(0, 0, 0, 0.7) inset; */
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.2) 1%,
+    transparent,
+    transparent,
+    transparent
+  );
+  padding: 0 90px;
+}
+
+#rightPage main .movie h1 {
+  font-size: 70px;
+  font-weight: bolder;
+  color: white;
+  padding: 100px 0px;
+  margin: 0px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+#rightPage main .movie h1 span {
+  font-size: 18px;
+}
+
+iframe {
+  width: 100%;
+  height: 700px;
+  padding-bottom: 100px;
+}
+
+#rightPage main p:nth-of-type(1) {
+  font-size: 25px;
+  text-align: end;
+  padding-bottom: 38px;
+}
+
+#rightPage main p:nth-of-type(2) {
+  font-size: 25px;
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 50px;
+}
