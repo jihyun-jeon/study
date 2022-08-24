@@ -1,6 +1,5 @@
 /*
 // <문제1> - 글자가 보이면 .hide추가, 글자가 안보이면 .show 추가 (조건,한개가 열리면 한개는 닫혀야 함)
-
 const containEl = document.querySelector('.container');
 
 function toggle(el) {
@@ -21,16 +20,19 @@ containEl.addEventListener('click', (e) => {
   const clickedBodyEl = e.target.parentElement.nextElementSibling;
   const openedBodyEl = containEl.querySelector('.show');
 
+  // 1. 1)show인 것을 눌러서 닫을 경우(그냥 해당 요소 하나만 닫기만 하면 됨)
+  //    2)또는 hidden인 것을 열 경우 (그냥 해당 요소 하나만 열기만 하면 됨)
+  //     ㄴ> show인게 애당초 없기 때문에 openedBodyEl가 null이 나오는데, 이를 !null해서 true로 만들어줌
   if (clickedBodyEl === openedBodyEl || !openedBodyEl) {
     toggle(clickedBodyEl);
-
     return;
   }
 
+  // 2. hidden인것을 눌러서 열고, show인걸 자동으로 닫게 하는 경우
   toggle(openedBodyEl);
   toggle(clickedBodyEl);
 });
-/*
+*/
 
 /*
 // <문제2> - 글자가 보이면 .hide추가, 글자가 안보이면 .show 추가 (조건,각 바디가 따로따로 닫히고 열려야 함)
@@ -125,6 +127,8 @@ const ac1 = new AccordionOld('#container-one', true); // 독립모드
 const ac2 = new AccordionOld('#container-two', false); // 통합모드. 하나를 열면 다른게 닫혀야 함
 */
 
+// < 완성본 > //////////////////////////////////////////////////////////////////////
+
 // 신세대 방식 - class화
 class Accordion {
   constructor(selector, indp) {
@@ -157,18 +161,23 @@ class Accordion {
         return;
       }
 
-      const clickedBodyEl = e.target.parentElement.nextElementSibling;
+      // console.log(e.target); // button
+      const clickedBodyEl = e.target.parentElement.nextElementSibling; // 아코디언 바디부분
 
+      // <독립모드 일때>
       if (this.indp) {
-        // 독립모드 일때
-        const openedBodyEl = containEl.querySelector('.show');
+        const openedBodyEl = containEl.querySelector('.show'); // show인 아코디언 바디부분
+        // 1. show인 것을 눌러서 닫을 경우(그냥 해당 요소 하나만 닫기만 하면 됨)
+        //    또는 hidden인 것을 열 경우 (그냥 해당 요소 하나만 열기만 하면 됨)
         if (clickedBodyEl === openedBodyEl || !openedBodyEl) {
           this.toggle(clickedBodyEl);
           return;
         }
+        // 2. hidden인것을 눌러서 열고, show인걸 자동으로 닫게 하는 경우
         this.toggle(openedBodyEl);
       }
 
+      // <독립모드 아닐때>
       this.toggle(clickedBodyEl);
     });
   }
@@ -176,3 +185,50 @@ class Accordion {
 
 const ac1 = new Accordion('#container-one', true); // 독립모드
 const ac2 = new Accordion('#container-two', false); // 통합모드. 하나를 열면 다른게 닫혀야 함
+
+// < 옛날 방식 - 함수형 >
+/*
+function Accordion(selector, indp) {
+  this.containEl = document.querySelector(selector);
+  this.indp = indp;
+  this.bindEvent();
+}
+
+Accordion.prototype.toggle = function (x) {
+  if (x.classList.contains('show')) {
+    x.classList.remove('show');
+    x.classList.add('hide');
+    return;
+  }
+  x.classList.add('show');
+  x.classList.remove('hide');
+};
+
+Accordion.prototype.bindEvent = function () {
+  this.containEl.addEventListener('click', (e) => {
+    if (e.target.nodeName !== 'BUTTON') {
+      return;
+    }
+
+    const clickedBodyEl = e.target.parentElement.nextElementSibling;
+
+    // < 독립모드x : 하나만 열려있게끔 >
+    if (!this.indp) {
+      const showBodyEl = this.containEl.querySelector('.show');
+      if (showBodyEl === clickedBodyEl || !showBodyEl) {
+        this.toggle(clickedBodyEl);
+        return;
+      }
+      this.toggle(clickedBodyEl);
+      this.toggle(showBodyEl);
+      return;
+    }
+
+    // < 독립모드 : 3개 다 펼칠 수 있는 모드 >
+    this.toggle(clickedBodyEl);
+  });
+};
+
+const a1 = new Accordion('#container-one', false); // 하나만 열려있게끔(독립모드x)
+const a2 = new Accordion('#container-two', true); // 독립적으로 각각 열리고 닫히게끔(독립모드ㅇ)
+*/

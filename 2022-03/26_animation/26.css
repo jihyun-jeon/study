@@ -1,0 +1,285 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+li {
+  list-style-type: none;
+}
+
+body {
+  background-image: url(./imgs/wood_pattern.jpg);
+}
+
+#wrap {
+  width: 720px;
+  height: 300px;
+  position: relative; /*p[1]*/
+  background-image: url(./imgs/background.png);
+  margin: 0 auto;
+  margin-top: 100px;
+  overflow: hidden;
+}
+
+/* 1.파토 */
+#wave {
+  z-index: 3;
+  width: 720px;
+  height: 300px;
+  position: relative; /*p[2]*/
+}
+
+#wave .frontWave {
+  /*짙은 파랑색*/
+  background-image: url(./imgs/water-front.png);
+  width: 1000px;
+  height: 100px;
+  position: absolute; /*p[2]*/
+  bottom: -20px;
+  left: -140px;
+  animation: wavef 2s linear infinite alternate;
+}
+@keyframes wavef {
+  0% {
+    left: -140px;
+    bottom: -20px;
+  }
+  100% {
+    left: -149px;
+    bottom: -29px;
+  }
+}
+
+#wave .backWave {
+  /*옅은 파도*/
+  background-image: url(./imgs/water-back.png);
+  width: 1000px;
+  height: 84px;
+  position: absolute; /*p[2]*/
+  bottom: 10px;
+  left: -140px;
+  animation: waveb 2s linear infinite alternate;
+}
+
+@keyframes waveb {
+  0% {
+    left: -140px;
+    bottom: 10px;
+  }
+  100% {
+    left: -130px;
+    bottom: 14px;
+  }
+}
+
+/* 2.구름 */
+#cloud {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 1;
+}
+
+#cloud ul li:first-child {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+
+#cloud ul li:nth-child(2) {
+  position: absolute;
+  top: 70px;
+  left: 320px;
+}
+
+#cloud ul li:nth-child(3) {
+  position: absolute;
+  top: 0px;
+  left: 530px;
+}
+
+#cloud #c1 {
+  width: 720px;
+  position: absolute;
+  left: 0px;
+  top: 0;
+  animation: c1Ani 10s infinite linear;
+}
+@keyframes c1Ani {
+  0% {
+    left: 0px;
+  }
+  50% {
+    left: -360px;
+  }
+  100% {
+    left: -720px;
+  }
+}
+
+#cloud #c2 {
+  width: 720px;
+  position: absolute;
+  left: 720px;
+  top: 0;
+  animation: c2Ani 10s infinite linear;
+}
+@keyframes c2Ani {
+  0% {
+    left: 720px;
+  }
+  50% {
+    left: 360px;
+  }
+  100% {
+    left: 0px;
+  }
+}
+
+/* 3.보트 */
+#boat {
+  position: absolute;
+  left: 30px;
+  top: 60px;
+  z-index: 2;
+  animation: boatAndQuest 1s 2s infinite alternate;
+}
+@keyframes boatAndQuest {
+  0% {
+    top: 60px;
+    left: 30px;
+  }
+  100% {
+    top: 66px;
+    left: 33px;
+  }
+}
+
+#boat dl {
+  position: relative;
+  top: 0;
+  left: 0;
+}
+
+#boat dl dt {
+  position: absolute;
+  top: 0;
+  left: 0;
+  animation: boatAni 2s ease-out;
+}
+
+@keyframes boatAni {
+  0% {
+    left: -300px;
+  }
+  100% {
+    left: 30px;
+  }
+}
+
+#boat dl dd {
+  position: absolute;
+  top: -30px;
+  left: 190px;
+  opacity: 1;
+  animation: questionAni 3s linear;
+}
+
+@keyframes questionAni {
+  0% {
+    opacity: 0;
+  }
+  80% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* 4.텍스트 */
+#text {
+  z-index: 4;
+  position: absolute;
+  right: 30px;
+  top: 30px;
+}
+
+#text h1 {
+  font-size: 60px;
+  font-weight: bolder;
+  color: rgb(56, 110, 228);
+  animation: lostAni 4s;
+}
+@keyframes lostAni {
+  0% {
+    opacity: 0;
+  }
+  80% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+#text h2 {
+  font-size: 26px;
+  font-weight: bolder;
+  color: black;
+  padding-top: 10px;
+  padding-bottom: 20px;
+  animation: relaxAni 5s;
+}
+@keyframes relaxAni {
+  0% {
+    opacity: 0;
+  }
+  80% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+form {
+  position: absolute;
+  right: 30px;
+  top: 140px;
+  animation: inputAni 6s;
+}
+
+@keyframes inputAni {
+  0% {
+    right: -350px;
+  }
+  80% {
+    right: -350px;
+  }
+  100% {
+    right: 30px;
+  }
+}
+
+#text input {
+  width: 200px;
+  height: 50px;
+  padding-left: 10px;
+  border-radius: 5px 0px 0px 5px;
+  border: 1px solid gray;
+}
+
+#text input::placeholder {
+  color: gray;
+  font-size: 16px;
+}
+
+#text button {
+  width: 100px;
+  height: 50px;
+  color: blue;
+  border-radius: 0px 5px 5px 0px;
+  border: 1px solid gray;
+}

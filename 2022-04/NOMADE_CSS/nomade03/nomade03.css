@@ -1,0 +1,29 @@
+.grid {
+  height: 600px;
+  background-color: gray;
+  display: grid;
+  gap: 5px;
+  grid-template-columns: repeat(4, 100px);
+  grid-template-rows: repeat(4, 100px);
+
+  /* 방법1 */
+  justify-content: center;
+  align-content: space-between;
+  /* 방법2 */
+  /* place-content: space-between center; */
+}
+.header {
+  background-color: tomato;
+}
+
+.content {
+  background-color: yellowgreen;
+}
+
+.nav {
+  background-color: skyblue;
+}
+
+.footer {
+  background-color: purple;
+}

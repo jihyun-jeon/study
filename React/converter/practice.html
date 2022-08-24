@@ -9,17 +9,22 @@
   <body>
     <div id="root"></div>
   </body>
-  <!--react js :interactive한 ui를 만들게 함. 이벤트 같은거 할 수 있도록 함-->
-  <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
-  <!--react dom :모든 react요소들을 html 바디에 두도록 함-->
+  <!--react dom : 모든 react요소들을 html 바디에 두도록 함-->
   <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
-  <!--jsx:JSX – 자바스크립트를 확장한 문법. html 형식처럼 씀 / babel: 트랜스파일러. JSX를 브라우저가 온전히 이해하지 못하므로 오리지날 react코드로 이해할 수 있게 변환해줌 -->
+
+  <!--react js : interactive한 ui를 만들게 함. 이벤트 같은 작동 가능케 함-->
+  <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
+
+  <!-- jsx : 자바스크립트를 확장한 문법. html 형식처럼 씀 -->
+  <!-- babel : 트랜스파일러. JSX를 브라우저가 온전히 이해하지 못하므로 오리지날 react코드로 이해할 수 있게 변환해줌 -->
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+  <!-- prop-types : prop의 타입을 지정할 수 있음 -->
   <script src="https://unpkg.com/prop-types@15.7.2/prop-types.js"></script>
 
   <script type="text/babel">
-      // react js는 자바스크립트를 먼저 다뤄 작성한 후, 그걸 html로 만듬
-      /*
+    // react js는 자바스크립트를 먼저 다뤄 작성한 후, 그걸 html로 만듬
+    /*   <예제2>
       // [컴포넌트1]
       function MinutesToHour() {
         // 1.
@@ -152,37 +157,35 @@
       }
       */
 
-      // 부모 컴포넌트
-      function App() {
-        return (
-          <div>
-            <Btn title="save1" color="blue" number={1} />
-            <Btn title="save2" color="red" />
-          </div>
-        );
-      }
+    // <예제1>
+    // 부모 컴포넌트
+    // function App() {
+    //   return (
+    //     <div>
+    //       <Btn title="save1" color="blue" number={1} />
+    //       <Btn title="save2" color="red" />
+    //     </div>
+    //   );
+    // }
 
-      // 자식 컴포넌트에서의 prop의 기본값 설정가능
-    ]
+    // // 자식 컴포넌트에서의 prop의 기본값 설정가능
 
-      // 자식 컴포넌트
-      function Btn({ title, color, number = 2 }) {
-        return (
-            <span>{number}</span>
-        );
-      }
+    // // 자식 컴포넌트
+    // function Btn({ title, color, number = 2 }) {
+    //   return <span>{number}</span>;
+    // }
 
-      // 4.2강의 뒤에 기본값 주는거 다시 보고 필기해놓기
-      // prop의 타입을 지정해 줌.
-      // isRequired 붙이면 prop값 없을시 오류남
-      //
-      Btn.propTypes = {
-        title: PropTypes.string.isRequired,
-        color: PropTypes.string,
-        number: PropTypes.number,
-      };
+    // // 4.2강의 뒤에 기본값 주는거 다시 보고 필기해놓기
+    // // prop의 타입을 지정해 줌.
+    // // isRequired 붙이면 prop값 없을시 오류남
+    // //
+    // Btn.propTypes = {
+    //   title: PropTypes.string.isRequired,
+    //   color: PropTypes.string,
+    //   number: PropTypes.number,
+    // };
 
-      const root = document.getElementById('root');
-      ReactDOM.render(<App />, root);
+    // const root = document.getElementById('root');
+    // ReactDOM.render(<App />, root);
   </script>
 </html>

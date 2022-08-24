@@ -1,0 +1,84 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-size: 14px;
+  font-family: '맑은 고딕';
+}
+
+header {
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  height: 103px;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+header section {
+  width: 1000px;
+  margin: 0 auto;
+  overflow: hidden; /* p1 */
+}
+
+header h1 {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  margin-left: -50.5px;
+}
+header #topmenu {
+  overflow: hidden; /* p2 */
+  float: right; /* p1 */
+  margin-top: 10px;
+}
+#topmenu li {
+  float: left; /* p2 */
+  list-style: none;
+  margin-left: 20px;
+}
+
+#topmenu a {
+  color: #ccc;
+  text-decoration: none;
+  font-size: 12px;
+  padding: 3px 5px;
+  display: block; /* a태그는 inline임. 패딩을 주기위해 블록을 만듦 */
+}
+
+#topmenu li:nth-child(3) a {
+  color: #000;
+  background-color: #ccc;
+  border-radius: 10px;
+}
+#topmenu li:nth-child(4) a {
+  color: #fff;
+  background-color: purple;
+  border-radius: 10px;
+}
+
+#mainmenu {
+  overflow: hidden; /*[p3]*/
+  margin-top: 53px;
+  height: 50px;
+  line-height: 50px;
+}
+#mainmenu li {
+  float: left; /*[p3]*/
+  list-style: none;
+  width: 140px;
+}
+#mainmenu li:first-child,
+#mainmenu li:nth-child(2),
+#mainmenu li:nth-child(3) {
+  width: 100px;
+}
+#mainmenu li:nth-child(4) {
+  margin-right: 140px;
+}
+#mainmenu a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 18px;
+}

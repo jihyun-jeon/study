@@ -1,0 +1,224 @@
+/* 2. web css이 기준임. 따라서 web css를 전부다 옮겨 온 후 수정할 것만 수정해서 사용함.*/
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Antic', sans-serif;
+  font-size: 14px;
+}
+
+#wrap {
+  width: 100%;
+}
+
+/*1.헤더*/
+header {
+  /*pad에서 보는건데 가로사이즈가 딱 100%로 붙어있으면 그림이 짜린 것 처럼 보여서 95%로 줄임*/
+  width: 95%; /*수정1*/
+  margin: 0 auto;
+  height: 110px;
+  overflow: hidden;
+}
+
+header h1 {
+  float: left;
+  margin-right: 30px;
+}
+
+/*수정1*/
+header h2 {
+  float: right;
+  font-size: 30px;
+  margin-top: 30px;
+}
+
+header #menu {
+  display: none; /*수정1*/
+}
+
+header #join {
+  display: none; /*수정1*/
+}
+
+/*2.베너*/
+#banner {
+  width: 100%;
+  background-color: #f4f4f4;
+  text-align: center;
+}
+
+/*수정3*/
+#banner img {
+  width: 95%;
+}
+
+/* 3.컨텐츠  */
+#contents {
+  width: 95%; /*수정1*/
+  margin: 50px auto;
+  font-size: 18px;
+  overflow: hidden;
+}
+
+#contents dl {
+  /*반응형 사이트이기 때문에 % 비율로 길이 맞춰야 함*/
+  float: left;
+  width: 48%; /*수정2 - 두개씩 정렬되게 끔 */
+  margin-right: 4%;
+  margin-bottom: 4%; /*수정2 - 두개씩 정렬되게 끔 */
+}
+
+/*수정2- 두개씩 정렬되게 끔 */
+#contents dl:nth-child(even) {
+  margin-right: 0;
+}
+
+#contents dl dt {
+  font-size: 18px;
+  font-weight: bolder;
+  margin-bottom: 10px;
+}
+
+#contents dl dd {
+  margin-bottom: 10px;
+}
+
+#contents dl dd:first-of-type img {
+  width: 100%;
+  /* 아래 4 사진 사이즈가 딱 맞지 않아서 강제로 사진을 늘려줌 */
+}
+
+#contents dl:first-child dd {
+  color: royalblue;
+}
+
+#contents dd form label {
+  display: none;
+}
+
+#contents dd form #mail {
+  width: 80%;
+  height: 30px;
+  margin-bottom: 10px;
+}
+
+#contents dd form button {
+  border: none;
+  background-color: royalblue;
+  font-size: 16px;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+/*
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body{
+	font-family: 'Antic', sans-serif;
+	font-size: 14px;
+}
+
+#wrap{
+	width: 100%;
+}
+
+header{
+	width:95%;
+	margin:0 auto;
+	height: 115px;
+	overflow: hidden;
+}
+
+header h1{
+	float: left;
+	margin-right: 30px;
+}
+
+header #menu{
+	display: none;
+}
+
+header #join{
+	display: none;
+}
+
+header h2{
+	float: right;
+	font-size: 30px;
+	margin-top: 35px;
+}
+
+
+#banner{
+	width: 100%;
+	background-color: #f4f4f4;
+	text-align: center;
+}
+#banner img{
+	width: 100%;
+}
+
+
+#contents{
+	width:95%;
+	margin:50px auto;
+	font-size: 16px;
+	overflow: hidden;
+}
+
+#contents dl{
+	width: 48%;
+	float: left;
+	margin-right: 4%;
+	margin-bottom: 4%;
+}
+
+#contents dl:nth-child(even){
+	margin-right: 0;
+}
+
+#contents dl dt{
+	font-size: 18px;
+	font-weight: bold;
+	margin-bottom: 10px;
+}
+
+#contents dl dd{
+	margin-bottom: 10px;
+}
+
+#contents dl dd:first-of-type img{
+	width: 100%;
+}
+
+#contents dl:first-child dd{
+	color:royalblue;
+}
+
+#contents dd form label{
+	display: none;
+}
+
+#contents dd form #mail{
+	width: 80%;
+	height: 30px;
+	margin-bottom: 10px;
+}
+
+#contents dd form button{
+	background-color: royalblue;
+	color: #fff;
+	border: none;
+	padding: 10px;
+	border-radius: 5px;
+}
+*/

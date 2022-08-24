@@ -1,0 +1,218 @@
+/* 3. web pad를 전부다 옮겨 온 후 수정할 것만 수정해서 사용함. - 하단 정렬만 1개씩 나오게끔 하면 됨*/
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Antic', sans-serif;
+  font-size: 14px;
+}
+
+#wrap {
+  width: 100%;
+}
+
+/*1.헤더*/
+header {
+  width: 95%;
+  margin: 0 auto;
+  height: 110px;
+  overflow: hidden;
+}
+
+header h1 {
+  float: left;
+  margin-right: 30px;
+}
+
+header h2 {
+  float: right;
+  font-size: 30px;
+  margin-top: 30px;
+}
+
+header #menu {
+  display: none;
+}
+
+header #join {
+  display: none;
+}
+
+/*2.베너*/
+
+#banner {
+  width: 100%;
+  background-color: #f4f4f4;
+  text-align: center;
+}
+
+#banner img {
+  width: 95%;
+}
+
+/* 3.컨텐츠  */
+#contents {
+  width: 95%;
+  margin: 50px auto;
+  font-size: 18px;
+  overflow: hidden;
+}
+
+/* 수정1- 여기만 수정하면 됨.  */
+#contents dl {
+  /*반응형 사이트이기 때문에 % 비율로 길이 맞춰야 함*/
+  width: 100%;
+  margin-bottom: 10%;
+}
+
+#contents dl:nth-child(even) {
+  margin-right: 0;
+}
+
+#contents dl dt {
+  font-size: 18px;
+  font-weight: bolder;
+  margin-bottom: 10px;
+}
+
+#contents dl dd {
+  margin-bottom: 10px;
+}
+
+#contents dl dd:first-of-type img {
+  width: 100%;
+  /* 아래 4 사진 사이즈가 딱 맞지 않아서 강제로 사진을 늘려줌 */
+}
+
+#contents dl:first-child dd {
+  color: royalblue;
+}
+
+#contents dd form label {
+  display: none;
+}
+
+#contents dd form #mail {
+  width: 80%;
+  height: 30px;
+  margin-bottom: 10px;
+}
+
+#contents dd form button {
+  border: none;
+  background-color: royalblue;
+  font-size: 16px;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+/*
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body{
+	font-family: 'Antic', sans-serif;
+	font-size: 14px;
+}
+
+#wrap{
+	width: 100%;
+}
+
+header{
+	width:95%;
+	margin:0 auto;
+	height: 115px;
+	overflow: hidden;
+}
+
+header h1{
+	float: left;
+	margin-right: 30px;
+}
+
+header #menu{
+	display: none;
+}
+
+header #join{
+	display: none;
+}
+
+header h2{
+	float: right;
+	font-size: 30px;
+	margin-top: 35px;
+}
+
+
+#banner{
+	width: 100%;
+	background-color: #f4f4f4;
+	text-align: center;
+}
+#banner img{
+	width: 100%;
+}
+
+
+#contents{
+	width:95%;
+	margin:50px auto;
+	font-size: 16px;
+	overflow: hidden;
+}
+
+#contents dl{
+	width: 100%;
+	margin-bottom:10%;
+}
+
+#contents dl:nth-child(even){
+	margin-right: 0;
+}
+
+#contents dl dt{
+	font-size: 18px;
+	font-weight: bold;
+	margin-bottom: 10px;
+}
+
+#contents dl dd{
+	margin-bottom: 10px;
+}
+
+#contents dl dd:first-of-type img{
+	width: 100%;
+}
+
+#contents dl:first-child dd{
+	color:royalblue;
+}
+
+#contents dd form label{
+	display: none;
+}
+
+#contents dd form #mail{
+	width: 80%;
+	height: 30px;
+	margin-bottom: 10px;
+}
+
+#contents dd form button{
+	background-color: royalblue;
+	color: #fff;
+	border: none;
+	padding: 10px;
+	border-radius: 5px;
+}
+*/

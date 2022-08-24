@@ -1,0 +1,39 @@
+.container {
+  height: 1000px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  /*  flex-wrap: nowrap;
+  align-content: flex-start; */
+}
+
+.box {
+  flex-basis: fit-content;
+  /* flex-basis : 요소에게 처음 크기를 주는 것임.
+  : flex-direction 이 row 일 때 - width 지정하는 것과 비슷
+  : flex-direction 이 column 일 땐 - height 지정하는 것과 비슷
+  */
+  height: 200px;
+  background-color: rosybrown;
+}
+
+.box:nth-child(2) {
+  /* align-self: center;
+  order: 1; */
+  background-color: royalblue;
+}
+
+/* <'width'> 지정
+flex-basis: 10em;
+flex-basis: 3px;
+flex-basis: auto;
+
+ 원본 크기 키워드
+flex-basis: fill;
+flex-basis: max-content;
+flex-basis: min-content;
+flex-basis: fit-content;
+
+ 플렉스 아이템 내용 크기에 따라 조절
+flex-basis: content; */

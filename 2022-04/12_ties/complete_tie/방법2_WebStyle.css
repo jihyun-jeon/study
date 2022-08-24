@@ -1,0 +1,381 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Antic', sans-serif;
+  font-size: 14px;
+}
+
+#wrap {
+  width: 100%;
+}
+
+li {
+  list-style: none;
+}
+
+/*0.M자를 숨겨놈 */
+h2 {
+  display: none;
+}
+
+/*1.헤더*/
+header {
+  width: 1100px;
+  margin: 0 auto;
+  height: 110px;
+  overflow: hidden;
+}
+
+/* [반응형 만드는 방법2 ]
+  : css파일을 교체하지 않아도 한 css파일에 미디어쿼리 규칙을 적용하여
+  브라우저가 축소되면 반응형처럼 작동하도록 함
+ */
+
+/* [p1] 추가함 */
+@media screen and (max-width: 1099px) {
+  header {
+    width: 95%;
+  }
+}
+
+header h1 {
+  float: left;
+  margin-right: 30px;
+}
+
+header #menu {
+  float: left;
+  margin-top: 40px;
+  overflow: hidden;
+}
+
+header #menu li {
+  float: left;
+  margin-right: 30px;
+}
+
+header #menu li a {
+  text-decoration: none;
+  color: black;
+  font-size: 24px;
+}
+
+header #join {
+  float: right;
+  margin-top: 43px;
+  overflow: hidden;
+}
+
+header #join li {
+  float: left;
+  margin-left: 30px;
+}
+
+header #join li a {
+  text-decoration: none;
+  color: black;
+  font-size: 20px;
+}
+
+@media screen and (max-width: 1099px) {
+  header #menu,
+  header #join {
+    display: none;
+  }
+
+  header h2 {
+    display: block;
+    float: right;
+    font-size: 30px;
+    margin-top: 30px;
+  }
+}
+
+/*2.베너*/
+
+#banner {
+  width: 100%;
+  background-color: #f4f4f4;
+  text-align: center;
+}
+
+@media screen and (max-width: 1099px) {
+  #banner img {
+    width: 95%;
+  }
+}
+
+/* 3.컨텐츠  */
+#contents {
+  width: 1100px;
+  margin: 50px auto;
+  font-size: 18px;
+  overflow: hidden;
+}
+
+#contents dl {
+  /*반응형 사이트이기 때문에 % 비율로 길이 맞춰야 함*/
+  width: 22%;
+  margin-right: 4%;
+  float: left;
+}
+
+#contents dl:last-child {
+  margin-right: 0;
+}
+
+/*[p2]추가함*/
+@media screen and (min-width: 601px) and (max-width: 1099px) {
+  #contents {
+    width: 95%;
+  }
+
+  #contents dl {
+    width: 48%;
+    margin-bottom: 4%;
+  }
+
+  #contents dl:last-child,
+  #contents dl:nth-child(2) {
+    margin-right: 0;
+  }
+}
+
+/*[p3]추가함*/
+@media screen and (max-width: 600px) {
+  #contents {
+    width: 95%;
+  }
+
+  #contents dl {
+    width: 100%;
+    margin-bottom: 10%;
+    float: none;
+    margin-right: 0;
+  }
+}
+
+#contents dl dt {
+  font-size: 18px;
+  font-weight: bolder;
+  margin-bottom: 10px;
+}
+
+#contents dl dd {
+  margin-bottom: 10px;
+}
+
+#contents dl dd:first-of-type img {
+  width: 100%;
+  /* 아래 4 사진 사이즈가 딱 맞지 않아서 강제로 사진을 늘려줌 */
+}
+
+#contents dl:first-child dd {
+  color: royalblue;
+}
+
+#contents dd form label {
+  display: none;
+}
+
+#contents dd form #mail {
+  width: 80%;
+  height: 30px;
+  margin-bottom: 10px;
+}
+
+#contents dd form button {
+  border: none;
+  background-color: royalblue;
+  font-size: 16px;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+/* 수업자료 코드 */
+/*
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body{
+	font-family: 'Antic', sans-serif;
+	font-size: 14px;
+}
+
+#wrap{
+	width: 100%;
+}
+
+header{
+	width:1100px;
+	margin:0 auto;
+	height: 115px;
+	overflow: hidden;
+}
+
+@media screen and (max-width: 1099px){
+	header{
+		width:95%;
+	}
+}
+
+header h1{
+	float: left;
+	margin-right: 30px;
+}
+
+header #menu{
+	overflow: hidden;
+	float: left;
+	margin-top: 40px;
+}
+
+header #menu li{
+	float: left;
+	list-style: none;
+	margin-right: 30px;
+}
+
+header #menu li a{
+	color: #000;
+	text-decoration: none;
+	font-size: 24px;
+}
+
+header #join{
+	float: right;
+	overflow: hidden;
+	margin-top: 44px;
+}
+
+header #join li{
+	float: left;
+	list-style: none;
+	margin-left: 30px;
+}
+
+header #join li a{
+	color: #000;
+	text-decoration: none;
+}
+header h2{
+	display: none;
+}
+???????????
+@media screen and (max-width: 1099px){
+	header #menu{
+		display: none;
+	}
+	header #join{
+		display: none;
+	}
+	header h2{
+		display: block;
+		float: right;
+		font-size: 30px;
+		margin-top: 35px;
+	}
+}
+
+
+#banner{
+	width: 100%;
+	background-color: #f4f4f4;
+	text-align: center;
+}
+
+?????
+@media screen and (max-width: 1099px){
+	#banner img{
+		width: 100%;
+	}
+}
+
+
+#contents{
+	width:1100px;
+	margin:50px auto;
+	font-size: 16px;
+	overflow: hidden;
+}
+
+#contents dl{
+	width: 22%;
+	float: left;
+	margin-right: 4%;
+}
+
+#contents dl:last-child{
+	margin-right: 0;
+}
+
+@media screen and (min-width: 601px) and (max-width: 1099px){
+	#contents{
+		width: 95%;
+	}
+	#contents dl{
+		width: 48%;
+		margin-bottom: 4%;
+	}
+	#contents dl:last-child, #contents dl:nth-child(2){
+		margin-right: 0;
+	}
+}
+
+@media screen and (max-width: 600px){
+	#contents{
+		width: 95%;
+	}
+	#contents dl{
+		width: 100%;
+		margin-bottom: 10%;
+		float: none;
+		margin-right: 0;
+	}
+}
+
+
+#contents dl dt{
+	font-size: 18px;
+	font-weight: bold;
+	margin-bottom: 10px;
+}
+
+#contents dl dd{
+	margin-bottom: 10px;
+}
+
+#contents dl dd:first-of-type img{
+	width: 100%;
+}
+
+#contents dl:first-child dd{
+	color:royalblue;
+}
+
+#contents dd form label{
+	display: none;
+}
+
+#contents dd form #mail{
+	width: 80%;
+	height: 30px;
+	margin-bottom: 10px;
+}
+
+#contents dd form button{
+	background-color: royalblue;
+	color: #fff;
+	border: none;
+	padding: 10px;
+	border-radius: 5px;
+}
+*/

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #calculator {
+        width: 345px;
+        height: 400px;
+      }
+      input:first-child,
+      button {
+        width: 70px;
+        height: 70px;
+        margin: 5px;
+        text-align: center;
+        font-size: 18px;
+      }
+
+      input:last-child {
+        width: 230px;
+        height: 70px;
+        font-size: 18px;
+        text-align: right;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="calculator">
+      <div class="line">
+        <input type="text" readonly id="choiceOpr" />
+        <input type="text" readonly id="renderEl" />
+      </div>
+
+      <div class="line">
+        <button type="button" value="7">7</button>
+        <button type="button" value="8">8</button>
+        <button type="button" value="9">9</button>
+        <button type="button" value="+" class="opt">+</button>
+      </div>
+      <div class="line">
+        <button type="button" value="4">4</button>
+        <button type="button" value="5">5</button>
+        <button type="button" value="6">6</button>
+        <button type="button" value="-" class="opt">-</button>
+      </div>
+      <div class="line">
+        <button type="button" value="1">1</button>
+        <button type="button" value="2">2</button>
+        <button type="button" value="3">3</button>
+        <button type="button" value="/" class="opt">/</button>
+      </div>
+      <div class="line">
+        <button type="button" class="cEl">C</button>
+        <button type="button" value="0">0</button>
+        <button type="button" value="=" class="result">=</button>
+        <button type="button" value="*" class="opt">*</button>
+      </div>
+    </div>
+    <script src="./04.calculator.js"></script>
+  </body>
+</html>

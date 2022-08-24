@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>회원가입</title>
+    <style type="text/css">
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      @font-face {
+        font-family: 'S-CoreDream-3Light';
+        src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-3Light.woff')
+          format('woff');
+        font-weight: normal;
+        font-style: normal;
+      }
+      body {
+        font-family: 'S-CoreDream-3Light';
+        font-size: 16px;
+      }
+      h1 {
+        text-align: center;
+        font-size: 48px;
+        margin: 30px 0;
+      }
+      form {
+        width: 700px;
+        margin: 0 auto;
+        margin-bottom: 100px;
+      }
+      h2 {
+        font-size: 24px;
+        border-bottom: 2px solid #666;
+        padding-bottom: 5px;
+        margin-bottom: 20px;
+      }
+      p {
+        padding-left: 30px;
+        margin-bottom: 20px;
+      }
+      dl {
+        width: 640px;
+        margin: 0 auto;
+        margin-bottom: 30px;
+      }
+      dl dt {
+        font-weight: bold;
+        margin-bottom: 5px;
+      }
+      textarea {
+        font-family: 'S-CoreDream-3Light';
+        font-size: 12px;
+        width: 640px;
+        height: 120px;
+        resize: none;
+      }
+      dl dd {
+        text-align: right;
+        color: orange;
+      }
+
+      table {
+        border-spacing: 0;
+      }
+      th {
+        width: 150px;
+        text-align: right;
+        padding-right: 20px;
+      }
+      td {
+        padding: 5px 0;
+      }
+      label[for='phone'] {
+        display: none;
+      }
+      #user_id {
+        width: 180px;
+        height: 30px;
+      }
+      input[type='button'],
+      input[type='submit'] {
+        width: 100px;
+        height: 30px;
+        background-color: orange;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+      }
+      .txt {
+        font-size: 12px;
+        width: 120px;
+        display: inline-block;
+        margin-left: 20px;
+      }
+      #user_pw,
+      #re_pw,
+      #name,
+      #phone {
+        width: 380px;
+        height: 30px;
+      }
+      .blue {
+        color: #19f;
+        display: block;
+        font-size: 12px;
+      }
+      #mailid,
+      #maildo {
+        width: 177px;
+        height: 30px;
+      }
+      #korea {
+        width: 380px;
+        height: 30px;
+      }
+      input[type='radio'] {
+        width: 20px;
+        height: 20px;
+        vertical-align: middle; /* [p1] */
+      }
+      select {
+        width: 100px;
+        height: 30px;
+      }
+      input,
+      select {
+        font-family: 'S-CoreDream-3Light';
+        font-size: 16px;
+      }
+      input {
+        padding: 0 10px;
+      }
+      .btn {
+        border-top: 2px solid #ccc;
+        padding-top: 10px;
+        text-align: right;
+      }
+      .pw {
+        color: red;
+        vertical-align: top;
+        padding-top: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>회원가입</h1>
+    <form>
+      <h2>약관동의</h2>
+      <p>
+        회원가입을 위해 네이트 서비스 이용 약관 및 개인정보 수집 및 이용 안내
+        동의가 필요합니다.
+      </p>
+      <dl>
+        <dt>[필수] 네이트 서비스 이용약관</dt>
+        <dd>
+          <textarea readonly>
+제 1조 (목 적)
+이 서비스 이용약관(이하 “약관”이라 합니다)은 SK커뮤니케이션즈㈜(이하 “회사”라 합니다)가 제공하는 서비스와 관련하여 회사와 이용 고객(또는 회원) 간에 서비스의 이용 조건 및 절차, 회사와 회원 간의 권리, 의무 및 책임 사항 기타 필요한 사항을 규정함을 목적으로 합니다.
+
+제 2 조 (용어의 정의)
+이 약관에서 사용하는 용어의 정의는 다음 각호와 같으며, 정의되지 않은 용어에 대한 해석은 관계법령 및 서비스별 안내에서 정하는 바에 따릅니다.
+
+1)서비스 : 이용 고객 또는 회원이 PC, TV, 휴대형 단말기 등 각종 유무선 기기 또는 프로그램을 통하여 이용할 수 있도록 회사가 제공하는 모든 인터넷 서비스를 말하며, 회사가 공개한 API를 이용하여 제3자가 개발 또는 구축한 프로그램이나 서비스를 통하여 이용 고객 또는 회원에게 제공되는 경우를 포함합니다.
+2)회원 : 이 약관에 동의하고 회사와 이용 계약을 체결하여, 회사가 제공하는 서비스를 사용하는 자를 말합니다.
+3)이용고객 : 회사의 서비스를 이용하기 위하여 회사와 이용계약을 체결하려고 하는 자를 말합니다.
+4)회원정보 : 회사가 이용고객에게 회원가입 신청양식(이하 “신청양식"이라 합니다)에 기재를 요청하는 이용고객의 개인정보를 말합니다.
+5)ID(고유번호) : 회원의 식별과 회원의 서비스 이용을 위하여 사용되는 식별 정보를 말합니다.
+6)비밀번호 : 회원의 회원정보 보호를 위해 회원 자신이 설정한 문자와 숫자의 조합을 말합니다.
+7)사이버머니 : 회원이 회사가 제공하는 결제수단을 이용하여 충전하고 서비스 내에서 현금처럼 사용하는 가상의 화폐를 말합니다.
+8)포인트(또는 마일리지) : 회사가 서비스의 원활한 이용을 위하여 회원에게 부여하는 재산적 가치 및 환가성이 없는 무형의 도구를 말합니다.
+9)게시물 : 회원이 회사가 제공하는 서비스에 게시 또는 등록하는 부호(URL 포함), 문자, 음성, 음향, 영상(동영상 포함),이미지(사진 포함), 파일 등을 말합니다.</textarea
+          >
+        </dd>
+        <dd>
+          <label for="agree">네이트 서비스 이용약관에 동의합니다.</label>
+          <input type="checkbox" id="agree" checked />
+        </dd>
+      </dl>
+
+      <h2>프로필입력</h2>
+      <table>
+        <tr>
+          <th>
+            <label for="user_id">아이디</label>
+          </th>
+          <td>
+            <input type="text" id="user_id" /> @nate.com
+            <input type="button" value="중복확인" />
+            <span class="txt">영문소문자,숫자 조합 6~40자(-,_사용가능)</span>
+          </td>
+        </tr>
+        <tr>
+          <th class="pw">
+            <label for="user_pw">비밀번호</label>
+          </th>
+          <td>
+            <input type="password" id="user_pw" />
+            <span class="blue">안전한 비밀번호 관리를 위한 Tip!</span>
+          </td>
+        </tr>
+        <tr>
+          <th>
+            <label for="re_pw">비밀번호 확인</label>
+          </th>
+          <td>
+            <input type="password" id="re_pw" />
+          </td>
+        </tr>
+        <tr>
+          <th>
+            <label for="name">이름</label>
+          </th>
+          <td>
+            <input type="text" id="name" />
+          </td>
+        </tr>
+        <tr>
+          <th>이메일</th>
+          <td>
+            <input type="text" id="mailid" title="메일아이디" /> @
+            <input type="email" id="maildo" title="메일도메인" />
+          </td>
+        </tr>
+        <tr>
+          <th rowspan="2">휴대폰</th>
+          <td>
+            <select id="korea">
+              <option>Korea(82)</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="phone">전화번호</label>
+            <input type="tel" id="phone" />
+          </td>
+        </tr>
+        <tr>
+          <th>성별</th>
+          <td>
+            <input type="radio" id="man" name="mw" />
+            <label for="man">남자</label>
+            <input type="radio" id="woman" name="mw" />
+            <label for="woman">여자</label>
+          </td>
+        </tr>
+        <tr>
+          <th>생년월일</th>
+          <td>
+            <select>
+              <option>년도</option></select
+            >년
+            <select>
+              <option>월</option></select
+            >월
+            <select>
+              <option>일</option></select
+            >일
+          </td>
+        </tr>
+        <tr>
+          <th>해외IP차단</th>
+          <td>
+            <input type="radio" id="on" name="ip" />
+            <label for="on">On</label>
+            <input type="radio" id="off" name="ip" />
+            <label for="off">Off</label>
+            <span class="blue">해외IP 차단이란?</span>
+          </td>
+        </tr>
+      </table>
+      <p class="btn"><input type="submit" value="확인" /></p>
+    </form>
+  </body>
+</html>

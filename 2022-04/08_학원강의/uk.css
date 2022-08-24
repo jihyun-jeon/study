@@ -1,0 +1,193 @@
+/* 글자 3단 영역은 : pad */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+}
+
+#wrap {
+  width: 100%;
+}
+
+/* 1.헤더 */
+#wrap header {
+  background-color: black;
+  padding: 5px 0;
+}
+
+#wrap header h1 {
+  width: 1000px;
+  margin: 0 auto;
+}
+
+#wrap header h1 a {
+  color: white;
+  text-decoration: none;
+  font-size: 30px;
+}
+/*왕관 이미지를 가운데로 가져옴*/
+img {
+  vertical-align: middle;
+}
+
+#wrap header h1 a img {
+  margin-right: 10px;
+}
+
+@media screen and (max-width: 1199px) {
+  #wrap header h1 {
+    width: 95%;
+  }
+}
+
+/* 2.베너 */
+#banner {
+  background-color: #1d70b8;
+  color: white;
+  width: 100%;
+  padding: 50px 0;
+}
+
+#banner #banner_in {
+  width: 1000px;
+  margin: 0 auto;
+}
+
+#banner h2 {
+  font-size: 48px;
+  margin-bottom: 30px;
+}
+
+#banner p {
+  font-size: 24px;
+  line-height: 35px;
+  margin-bottom: 20px;
+}
+#banner p b {
+  display: block;
+}
+
+#banner form label {
+  display: none;
+}
+#banner form {
+  overflow: hidden;
+}
+
+#banner form #find {
+  width: 80%;
+  height: 40px;
+  font-size: 16px;
+  font-family: 'Roboto', sans-serif;
+  float: left; /*그래야 인풋과 아이콘이 한줄로 똑바로 정렬됨*/
+}
+
+#banner form span {
+  background-color: black;
+  width: 40px;
+  height: 40px;
+  font-size: 32px;
+  text-align: center;
+  line-height: 40px;
+  float: left; /*그래야 인풋과 아이콘이 한줄로 똑바로 정렬됨*/
+}
+
+@media screen and (max-width: 1199px) {
+  #banner #banner_in {
+    width: 95%;
+  }
+}
+
+/* 텍스트 부분 */
+#text {
+  width: 1000px;
+  margin: 0 auto;
+  padding: 50px 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+#text .collet {
+  width: 30%;
+}
+
+#text .collet dl dt {
+  margin-bottom: 10px;
+  color: #1d70b8;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+#text .collet dl dd {
+  line-height: 25px;
+}
+
+/* 패드사이즈 일때 */
+@media screen and (max-width: 1199px) {
+  #text {
+    width: 95%;
+  }
+  #text dl {
+    height: auto;
+    margin-bottom: 20px;
+  }
+}
+
+/* 핸드폰 사이즈 일때 -한 줄으로 나오게끔 */
+@media screen and (max-width: 600px) {
+  #text {
+    flex-direction: column;
+  }
+  #text .collet {
+    width: 100%;
+  }
+}
+
+/* 아래 그림3개 - pad사이즈일떄 한줄로 나오게 */
+#imgWrap {
+  display: flex;
+  width: 1000px;
+  margin: 0 auto;
+  justify-content: space-between;
+  padding-bottom: 50px;
+}
+
+#imgWrap dl {
+  width: 32%;
+}
+
+#imgWrap dl dt {
+  margin-bottom: 20px;
+}
+
+#imgWrap dl dt img {
+  width: 100%;
+}
+
+#imgWrap dl dd:first-of-type {
+  color: #1d70b8;
+  font-weight: bold;
+  font-size: 20px;
+  text-decoration: underline;
+  margin-bottom: 10px;
+}
+
+#imgWrap dl dd:last-of-type {
+  line-height: 25px;
+}
+
+@media screen and (max-width: 1199px) {
+  #imgWrap {
+    width: 95%;
+    flex-direction: column;
+  }
+  #imgWrap dl {
+    width: 100%;
+    padding-bottom: 30px;
+  }
+}

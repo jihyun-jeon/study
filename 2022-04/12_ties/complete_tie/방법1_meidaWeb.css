@@ -1,0 +1,266 @@
+/*방법1 - 규칙에 맞는 css파일을 각각 가져와 사용함. */
+/*1. web css가 바탕이 됨.*/
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Antic', sans-serif;
+  font-size: 14px;
+}
+
+li {
+  list-style: none;
+}
+
+#wrap {
+  width: 100%;
+}
+
+/*0.M자를 숨겨놈 */
+h2 {
+  display: none;
+}
+
+/*1.헤더*/
+header {
+  width: 1100px;
+  margin: 0 auto;
+  height: 110px;
+  overflow: hidden;
+}
+
+header h1 {
+  float: left;
+  margin-right: 30px;
+}
+
+header #menu {
+  float: left;
+  margin-top: 40px;
+  overflow: hidden;
+}
+
+header #menu li {
+  float: left;
+  margin-right: 30px;
+}
+
+header #menu li a {
+  text-decoration: none;
+  color: black;
+  font-size: 24px;
+}
+
+header #join {
+  float: right;
+  margin-top: 43px;
+  overflow: hidden;
+}
+
+header #join li {
+  float: left;
+  margin-left: 30px;
+}
+
+header #join li a {
+  text-decoration: none;
+  color: black;
+  font-size: 20px;
+}
+
+/*2.베너*/
+
+#banner {
+  width: 100%;
+  background-color: #f4f4f4;
+  text-align: center;
+}
+
+/* 3.컨텐츠  */
+#contents {
+  width: 1100px;
+  margin: 50px auto;
+  font-size: 18px;
+  overflow: hidden;
+}
+
+#contents dl {
+  /*반응형 사이트이기 때문에 % 비율로 길이 맞춰야 함*/
+  width: 22%;
+  margin-right: 4%;
+  float: left;
+}
+
+#contents dl:last-child {
+  margin-right: 0;
+}
+
+#contents dl dt {
+  font-size: 18px;
+  font-weight: bolder;
+  margin-bottom: 10px;
+}
+
+#contents dl dd {
+  margin-bottom: 10px;
+}
+
+#contents dl dd:first-of-type img {
+  width: 100%;
+  /* 아래 4 사진 사이즈가 딱 맞지 않아서 강제로 사진을 늘려줌 */
+}
+
+#contents dl:first-child dd {
+  color: royalblue;
+}
+
+#contents dd form label {
+  display: none;
+}
+
+#contents dd form #mail {
+  width: 80%;
+  height: 30px;
+  margin-bottom: 10px;
+}
+
+#contents dd form button {
+  border: none;
+  background-color: royalblue;
+  font-size: 16px;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+/*
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body{
+	font-family: 'Antic', sans-serif;
+	font-size: 14px;
+}
+
+#wrap{
+	width: 100%;
+}
+
+header{
+	width:1100px;
+	margin:0 auto;
+	height: 115px;
+	overflow: hidden;
+}
+
+header h1{
+	float: left;
+	margin-right: 30px;
+}
+
+header #menu{
+	overflow: hidden;
+	float: left;
+	margin-top: 40px;
+}
+
+header #menu li{
+	float: left;
+	list-style: none;
+	margin-right: 30px;
+}
+
+header #menu li a{
+	color: #000;
+	text-decoration: none;
+	font-size: 24px;
+}
+
+header #join{
+	float: right;
+	overflow: hidden;
+	margin-top: 44px;
+}
+
+header #join li{
+	float: left;
+	list-style: none;
+	margin-left: 30px;
+}
+
+header #join li a{
+	color: #000;
+	text-decoration: none;
+}
+header h2{
+	display: none;
+}
+
+
+#banner{
+	width: 100%;
+	background-color: #f4f4f4;
+	text-align: center;
+}
+
+
+#contents{
+	width:1100px;
+	margin:50px auto;
+	font-size: 16px;
+	overflow: hidden;
+}
+
+#contents dl{
+	width: 22%;
+	float: left;
+	margin-right: 4%;
+}
+
+#contents dl:last-child{
+	margin-right: 0;
+}
+
+#contents dl dt{
+	font-size: 18px;
+	font-weight: bold;
+	margin-bottom: 10px;
+}
+
+#contents dl dd{
+	margin-bottom: 10px;
+}
+
+#contents dl dd:first-of-type img{
+	width: 100%;
+}
+
+#contents dl:first-child dd{
+	color:royalblue;
+}
+
+#contents dd form label{
+	display: none;
+}
+
+#contents dd form #mail{
+	width: 80%;
+	height: 30px;
+	margin-bottom: 10px;
+}
+
+#contents dd form button{
+	background-color: royalblue;
+	color: #fff;
+	border: none;
+	padding: 10px;
+	border-radius: 5px;
+}
+*/

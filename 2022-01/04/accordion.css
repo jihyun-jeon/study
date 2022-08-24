@@ -1,3 +1,6 @@
+.red {
+  background-color: red;
+}
 .accordion {
   border: 1px solid black;
   width: 600px;
@@ -19,6 +22,8 @@
   background-color: #fff;
   text-align: left;
   cursor: pointer;
+  font-weight: 900;
+  font-size: 16px;
 }
 
 .accordion-body {

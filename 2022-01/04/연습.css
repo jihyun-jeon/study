@@ -1,0 +1,47 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin-top: 20px;
+  margin-left: 20px;
+}
+.container {
+  margin-bottom: 50px;
+}
+
+.accordion,
+.accordion-item,
+.accordion-btn,
+.accordion-body {
+  width: 500px;
+}
+
+.accordion {
+  border: 1px solid black;
+}
+
+.accordion-btn {
+  display: block;
+  text-align: left;
+  border: none;
+  background-color: inherit;
+  font-weight: bold;
+  font-size: 16px;
+  height: 50px;
+}
+
+.accordion-body {
+  overflow: hidden;
+  transition: height 0.5s;
+}
+
+.show {
+  height: 120px;
+}
+
+.hide {
+  height: 0px;
+}

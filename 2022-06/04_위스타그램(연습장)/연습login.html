@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>연습-로그인·westagram</title>
+    <link rel="icon" type="image/x-icon" href="./imgs/instagram.png" />
+    <link rel="stylesheet" href="./style/연습reset.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lobster&family=Nanum+Pen+Script&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./style/연습login.css" />
+  </head>
+  <body>
+    <div id="wrapper">
+      <div id="loginContainer">
+        <h1>westagram</h1>
+        <form>
+          <div class="field">
+            <label>
+              <span>전화번호, 사용자 이름 또는 이메일</span>
+              <input type="text" id="userId" />
+            </label>
+          </div>
+          <div class="field">
+            <label>
+              <span>비밀번호</span>
+              <input type="password" id="userPw" />
+            </label>
+          </div>
+
+          <button type="submit" disabled>로그인</button>
+        </form>
+      </div>
+      <p id="forgot">비밀번호를 잊으셨나요?</p>
+    </div>
+    <script src="./js/연습login.js"></script>
+  </body>
+</html>

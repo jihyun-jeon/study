@@ -1,0 +1,101 @@
+* {
+  box-sizing: border-box;
+}
+
+#wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+#loginContainer {
+  border: 1px solid #ddd;
+  width: 350px;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+h1 {
+  font-size: 50px;
+  font-weight: bold;
+  font-family: 'Lobster', cursive;
+  margin-bottom: 40px;
+}
+
+form {
+  padding: 20px 0;
+}
+
+.field {
+  width: 268px;
+  height: 38px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #fafafa;
+  margin-bottom: 5px;
+  position: relative;
+}
+
+.field:focus-within {
+  border-color: rgb(168, 168, 168);
+}
+
+.field span {
+  position: absolute;
+  top: 0px;
+  left: 9px;
+  height: 38px;
+  line-height: 38px;
+  color: rgba(142, 142, 142, 1);
+  font-size: 12px;
+  cursor: text;
+  transform-origin: left;
+  transition: all 0.15s ease-in-out;
+  pointer-events: none;
+  /* 전화번호, 사용자,,, 이 글자에 마우스 드래그 되지 않기 위해 */
+}
+
+.field.hasValue span {
+  transform: scale(0.6);
+  transform: translateY(-10px);
+}
+
+.field input {
+  border: 0;
+  outline: 0;
+  background-color: inherit;
+  width: 100%;
+  padding: 10.5px 8px;
+}
+
+.field.hasValue input {
+  padding: 18px 8px 2px 8px;
+}
+
+button {
+  margin-top: 20px;
+  width: 270px;
+  height: 35px;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  background-color: #0095f6;
+}
+
+button[disabled] {
+  background-color: #c0dffd;
+  cursor: not-allowed;
+}
+
+#forgot {
+  position: absolute;
+  bottom: 20px;
+  color: darkblue;
+  font-weight: 500;
+}

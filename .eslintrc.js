@@ -13,5 +13,6 @@ module.exports = {
     'max-classes-per-file': 0,
     'import/prefer-default-export': 0,
     'operator-linebreak': [2, 'after'],
+    'max-len': ['error', { code: 130, ignoreComments: true }],
   },
 };

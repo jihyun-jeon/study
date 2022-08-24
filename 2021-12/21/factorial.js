@@ -32,3 +32,15 @@ function fibonacci(n) {
 }
 
 fibonacci(5);
+
+// 피보나치 수열 50개 출력
+let first = 1;
+let second = 0;
+let result = 0;
+
+for (let i = 1; i <= 50; i += 1) {
+  result = first + second;
+  first = second;
+  second = result;
+  // console.log(result);
+}

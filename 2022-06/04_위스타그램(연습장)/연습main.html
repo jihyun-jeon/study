@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>westagram-main</title>
+    <link rel="icon" type="image/x-icon" href="./imgs/instagram.png" />
+    <link rel="stylesheet" href="./style/연습reset.css" />
+    <link rel="stylesheet" href="./style/연습common.css" />
+    <link
+      rel="stylesheet"
+      href="./style/연습main.css"
+      media="screen and (min-width:945px)"
+    />
+    <link
+      rel="stylesheet"
+      href="./style/연습mainReduction.css"
+      media="screen and (max-width: 944px)"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lobster&family=Nanum+Pen+Script&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/a7d268264a.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <!-- 1.상위 네이게이터 -->
+    <nav>
+      <div id="navUls">
+        <ul id="leftNav">
+          <li>
+            <img
+              class="logo"
+              src="./imgs/logoinstagram.png"
+              alt="instagramlogo"
+            />
+          </li>
+          <li class="westagram">westagram</li>
+        </ul>
+
+        <ul id="middleNav">
+          <li><input type="text" placeholder="검색" /></li>
+        </ul>
+
+        <ul id="rightNav">
+          <li>
+            <img
+              src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/bearu/explore.png"
+              alt="navigation"
+            />
+          </li>
+          <li>
+            <img
+              src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/bearu/heart.png"
+              alt="heart"
+            />
+          </li>
+          <li class="profileLi">
+            <button type="button" class="profileBtn">
+              <img
+                src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/bearu/profile.png"
+                alt="user"
+              />
+            </button>
+          </li>
+        </ul>
+        <!--2.메뉴박스 -->
+        <div id="menuBox" class="hidden">
+          <button>프로필</button>
+          <button>저장됨</button>
+          <button>설정</button>
+          <button>계정 전환</button>
+          <button>로그아웃</button>
+        </div>
+      </div>
+    </nav>
+
+    <main>
+      <!-- 3. 피드 본문 -->
+      <div id="feedWrapper"></div>
+      <!-- 4.오른쪽 스토리피드 -->
+      <section id="mainRightWrapper">
+        <div class="mainRight">
+          <!-- 오른쪽 top -->
+          <div class="userTemplate">
+            <p><img src="./imgs/wecode.jpeg" alt="wecodeLogo" /></p>
+            <ul>
+              <li>wecode_bootcamp</li>
+              <li>WeCode ㅣ 위코드</li>
+            </ul>
+          </div>
+          <!-- 스토리 영역 -->
+          <div id="story">
+            <p class="storyTitle">
+              <span class="gray">스토리</span
+              ><span style="font-weight: bold">모두 보기</span>
+            </p>
+            <div id="storyUsers">
+              <div class="userTemplate">
+                <p><i class="fas fa-user-circle userIcon"></i></p>
+                <ul>
+                  <li>_yum_s</li>
+                  <li>16분 전</li>
+                </ul>
+              </div>
+              <div class="userTemplate">
+                <p><i class="fas fa-user-circle userIcon"></i></p>
+                <ul>
+                  <li>drink_eat_drink</li>
+                  <li>3시간 전</li>
+                </ul>
+              </div>
+              <div class="userTemplate">
+                <p><i class="fas fa-user-circle userIcon"></i></p>
+                <ul>
+                  <li>hyukyc</li>
+                  <li>20시간 전</li>
+                </ul>
+              </div>
+              <div class="userTemplate">
+                <p><i class="fas fa-user-circle userIcon"></i></p>
+                <ul>
+                  <li>drink_eat_drink</li>
+                  <li>3시간 전</li>
+                </ul>
+              </div>
+              <div class="userTemplate">
+                <p><i class="fas fa-user-circle userIcon"></i></p>
+                <ul>
+                  <li>drink_eat_drink</li>
+                  <li>3시간 전</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- 추천영역 -->
+          <div id="story" class="recommend">
+            <p class="storyTitle">
+              <span class="gray">회원님을 위한 추천</span
+              ><span style="font-weight: bold">모두 보기</span>
+            </p>
+            <div id="storyUsers">
+              <div class="userTemplate">
+                <p><i class="fas fa-user-circle userIcon"></i></p>
+                <ul>
+                  <li>joaaahye</li>
+                  <li>_legend_a님 외 2명이...</li>
+                </ul>
+                <p class="blue">팔로우</p>
+              </div>
+              <div class="userTemplate">
+                <p><i class="fas fa-user-circle userIcon"></i></p>
+                <ul>
+                  <li>rampart81</li>
+                  <li>ringo.seoul님 외 12...</li>
+                </ul>
+                <p class="blue">팔로우</p>
+              </div>
+              <div class="userTemplate">
+                <p><i class="fas fa-user-circle userIcon"></i></p>
+                <ul>
+                  <li>shawnjjoo</li>
+                  <li>jimmylee1220님 외 1...</li>
+                </ul>
+                <p class="blue">팔로우</p>
+              </div>
+            </div>
+          </div>
+          <!-- 카피라이트 부분 -->
+          <ul id="copyRight">
+            <li>Instagram 정보·지원·홍보 센터·API·</li>
+            <li>채용 정보·개인정보처리방침·약관·</li>
+            <li>디렉터리·프로필·해시태그·언어</li>
+            <p>© 2022 INSTAGRAM FROM META</p>
+          </ul>
+        </div>
+      </section>
+    </main>
+    <script src="./js/연습feed.js"></script>
+    <script src="./js/연습main.js"></script>
+  </body>
+</html>
+
+<!-- 빨간하트 -->
+<!-- <svg class="redHeart"  color="#ed4956" fill="#ed4956" height="12"   viewBox="0 0 48 48" width="12"><path d="M34.6 3.1c-4.5 0-7.9 1.8-10.6 5.6-2.7-3.7-6.1-5.5-10.6-5.5C6 3.1 0 9.6 0 17.6c0 7.3 5.4 12 10.6 16.5.6.5 1.3 1.1 1.9 1.7l2.3 2c4.4 3.9 6.6 5.9 7.6 6.5.5.3 1.1.5 1.6.5s1.1-.2 1.6-.5c1-.6 2.8-2.2 7.8-6.8l2-1.8c.7-.6 1.3-1.2 2-1.7C42.7 29.6 48 25 48 17.6c0-8-6-14.5-13.4-14.5z"></path></svg> -->
+<!-- 빈 하트 -->
+<!-- <svg  class="emptyHeart"  color="#8e8e8e" fill="#8e8e8e" height="12" viewBox="0 0 24 24" width="12">
+  <path d="M16.792 3.904A4.989 4.989 0 0121.5 9.122c0 3.072-2.652 4.959-5.197 7.222-2.512 2.243-3.865 3.469-4.303 3.752-.477-.309-2.143-1.823-4.303-3.752C5.141 14.072 2.5 12.167 2.5 9.122a4.989 4.989 0 014.708-5.218 4.21 4.21 0 013.675 1.941c.84 1.175.98 1.763 1.12 1.763s.278-.588 1.11-1.766a4.17 4.17 0 013.679-1.938m0-2a6.04 6.04 0 00-4.797 2.127 6.052 6.052 0 00-4.787-2.127A6.985 6.985 0 00.5 9.122c0 3.61 2.55 5.827 5.015 7.97.283.246.569.494.853.747l1.027.918a44.998 44.998 0 003.518 3.018 2 2 0 002.174 0 45.263 45.263 0 003.626-3.115l.922-.824c.293-.26.59-.519.885-.774 2.334-2.025 4.98-4.32 4.98-7.94a6.985 6.985 0 00-6.708-7.218z"></path>
+</svg>   -->

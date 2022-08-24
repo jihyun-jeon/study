@@ -1,0 +1,27 @@
+/*
+< 강의3 - min-content, max-content >
+● max-content
+▷ content의 크기만큼 cell의 크기를 최대한 늘린다.
+● min-content
+▷ content의 크기를 최대한 줄여 cell의 크기를 최대한 줄인다.
+
+※ 어떻게 content가 보여야 하는지 디자인하는 것이다.
+※ repeat(), minmax와 결합하여 반응형 디자인을 만들 수 있다.
+
+▷ grid-template-columns: repeat(4, minmax(130px, max-content));
+ : 화면을 줄여도 grid 요소의 최소 크기는 130, 최대 크기는 최대 콘텐츠 크기만큼만 되도록
+*/
+.grid {
+  display: grid;
+  gap: 5px;
+  grid-template-columns: repeat(4, minmax(130px, max-content));
+  grid-template-rows: repeat(4, 150px);
+}
+
+.item {
+  background-color: steelblue;
+}
+
+/*
+http://cssgridgarden.com/
+*/

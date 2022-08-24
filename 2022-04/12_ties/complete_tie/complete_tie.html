@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Skyinny Ties</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Antic&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- [[[방법1. 규칙에 맞는 css파일을 각각 가져와 사용함]]]. -->
+    <!--  화면 가로 너비가 1100~최대max : meidaWeb.css 파일 가져옴 (하단 4개씩 정렬)  -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="./방법1_meidaWeb.css"
+      media="screen and (min-width:1100px)"
+    />
+
+    <!--  화면 가로 너비가 601~1099px : meidaPad.css 파일 가져옴 (하단 2개씩 정렬) -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="./방법1_meidaPad.css"
+      media="screen and (max-width:1099px) and (min-width:601px)"
+    />
+
+    <!--  화면 가로 너비가 최소0~600px : meidaMobile.css 파일 가져옴 (하단 1개씩 정렬))  -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="./방법1_meidaMobile.css"
+      media="screen and (max-width:600px)"
+    />
+
+    <!-- [[[방법2. meidaWeb.css를 복사하여 그 css파일을 가져옴]]] -->
+    <!-- <link rel="stylesheet" type="text/css" href="./방법2_WebStyle.css" /> -->
+  </head>
+  <body>
+    <div id="wrap">
+      <!-- 1.헤더 -->
+      <header>
+        <h1><img src="../ties_imgs/top_logo.jpg" alt="상단로고" /></h1>
+        <ul id="menu">
+          <li><a href="#">Collection</a></li>
+          <li><a href="#">Color</a></li>
+          <li><a href="#">Width</a></li>
+          <li><a href="#">Fabric</a></li>
+          <li><a href="#">Pattern</a></li>
+        </ul>
+        <ul id="join">
+          <li><a href="#">SIGN-IN</a></li>
+          <li><a href="#">REGISTER</a></li>
+        </ul>
+        <h2>M</h2>
+      </header>
+      <!-- 2.베너 -->
+      <div id="banner">
+        <img src="../ties_imgs/banner.jpg" alt="배너" />
+      </div>
+
+      <!-- 3.컨텐츠 -->
+      <div id="contents">
+        <dl>
+          <dt>Weekly Pick</dt>
+          <dd><img src="../ties_imgs/img_pick.jpg" alt="이번주픽" /></dd>
+          <dd class="blue">2 1/2" White and Blue Checked cotton Skinny Tie</dd>
+        </dl>
+
+        <dl>
+          <dt>Loop Us IN</dt>
+          <dd>
+            Tightly knotted or hanging loose? Fitted suit or selvedge denim?
+            Share your style with us.
+          </dd>
+          <dd><img src="../ties_imgs/img_sns.jpg" alt="sns" /></dd>
+        </dl>
+
+        <dl>
+          <dt>The Quarterly</dt>
+          <dd>
+            Our newsletter is simple and brief for the hard-pressed gentleman.
+          </dd>
+          <dd>
+            <form>
+              <label for="mail">메일</label>
+              <input type="email" id="mail" />
+              <button type="submit">SUBSCRIBE ME</button>
+            </form>
+          </dd>
+        </dl>
+
+        <dl>
+          <dt>Style Guide</dt>
+          <dd><img src="../ties_imgs/img_guide.jpg" alt="스타일가이드" /></dd>
+          <dd>
+            There are eighty-five ways to knot a tie. we'll show you the
+            Essentials.
+          </dd>
+        </dl>
+      </div>
+    </div>
+  </body>
+</html>
